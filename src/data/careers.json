@@ -1,0 +1,108 @@
+{
+  "intro": "Starbucks calls its five-tier coffeehouse career ladder \"Craft Your Path.\" Every level below is drawn from Starbucks' own official role descriptions and job postings — not a third party's guess at what the job involves.",
+  "leadersFromBaristaStat": "60%+",
+  "ladder": [
+    {
+      "level": 1,
+      "title": "Barista",
+      "summary": "Baristas are the heart of Starbucks — skilled in connecting and creating moments, and an expert in handcrafting delicious beverages, working together to create a welcoming coffeehouse environment.",
+      "responsibilities": [
+        "Greet and connect with every customer",
+        "Handcraft beverages to recipe and quality standards",
+        "Operate the register and handle transactions",
+        "Rotate between bar, register, and food stations",
+        "Maintain a clean, stocked, food-safe store",
+        "Support mobile order, pickup, and delivery fulfillment"
+      ],
+      "requirements": "Entry-level — no prior experience required. Most weeks run 20–40 hours, part-time or full-time.",
+      "pay": { "range": "$15+/hour to start", "note": "Starbucks' own minimum starting wage commitment for U.S. company-operated stores; total compensation value (wages plus benefits) averages roughly $30/hour for partners working 20+ hours/week.", "confidence": "reported" },
+      "pathToNext": "About 6–12 months of strong performance, reliable availability (often 25+ hrs/week), and demonstrated leadership on shift are typically what managers look for before recommending someone for Shift Supervisor."
+    },
+    {
+      "level": 2,
+      "title": "Shift Supervisor",
+      "summary": "Shift Supervisors run shifts, lead the coffeehouse team, and make decisions that impact operations — a first step into leadership and expanded responsibility.",
+      "responsibilities": [
+        "Execute store operations during scheduled shifts",
+        "Deploy partners and delegate tasks across the floor",
+        "Coach and positively reinforce new-partner training",
+        "Give the store manager feedback on partner performance",
+        "Spot morale or performance shifts and flag them to the manager",
+        "Uphold recipe, presentation, and service standards"
+      ],
+      "requirements": "Typically requires several months of barista experience and flexible availability; formal Shift Supervisor training program required after selection.",
+      "pay": { "range": "≈$18–24/hour", "note": "Cash wage estimated from crowdsourced pay data (Indeed, ZipRecruiter, Glassdoor); varies by market — some regional reports run notably higher.", "confidence": "estimated" },
+      "pathToNext": "Assistant Store Manager openings usually go to shift supervisors who've shown they can run a shift independently and are ready to take on staffing, scheduling, and business-result ownership."
+    },
+    {
+      "level": 3,
+      "title": "Assistant Store Manager",
+      "summary": "Assistant Managers inspire customers while developing management skills on their journey to running a coffeehouse of their own — managing operations, driving business results, leading a team, and developing talent.",
+      "responsibilities": [
+        "Co-manage daily store operations with the Store Manager",
+        "Support hiring, scheduling, and partner development",
+        "Help drive sales, labor, and cost targets",
+        "Step in as the store's leader in the manager's absence",
+        "Coach shift supervisors and baristas on standards"
+      ],
+      "requirements": "Usually promoted from Shift Supervisor; salaried position with full management accountability.",
+      "pay": { "range": "≈$50,000–$65,000/year", "note": "Salaried estimate synthesized from ZipRecruiter, Indeed, and Comparably; higher in metro markets like New York or California, lower in lower-cost regions.", "confidence": "estimated" },
+      "pathToNext": "Most Assistant Store Managers move up to Store Manager within roughly 1–3 years, based on performance and store/business needs."
+    },
+    {
+      "level": 4,
+      "title": "Store Manager",
+      "summary": "Store Managers run their coffeehouse as if it belongs to them — from daily operations to growing the business — spending time on the floor to connect with employees and customers, coach in the moment, and drive results.",
+      "responsibilities": [
+        "Own the store's full P&L and business performance",
+        "Hire, develop, and build the store's leadership bench",
+        "Set the store's operational and service standards",
+        "Drive community connection and local marketing",
+        "Coach Assistant Managers and Shift Supervisors directly"
+      ],
+      "requirements": "Almost always promoted internally; Starbucks aims to grow the large majority of its leaders from within rather than hiring store leadership externally.",
+      "pay": { "range": "≈$55,000–$100,000/year total pay", "note": "Base salary plus an annual performance bonus (roughly $5,000–$20,000 depending on store results) and Bean Stock equity; range synthesized from Glassdoor, ZipRecruiter, and PayScale, which vary widely by market and store volume.", "confidence": "estimated" },
+      "pathToNext": "District Manager roles typically require 5+ years of multi-unit retail leadership — managing P&L, inventory, operations, and customer service across more than one location — so Store Managers usually spend several years proving results before moving up."
+    },
+    {
+      "level": 5,
+      "title": "District Manager",
+      "summary": "District Managers lead a multi-coffeehouse portfolio and are accountable for performance across their district — assessing the business, building plans to drive results, and coaching the next generation of store leaders.",
+      "responsibilities": [
+        "Oversee performance across a portfolio of coffeehouses",
+        "Coach and develop Store Managers and future leaders",
+        "Translate company strategy into district-level plans",
+        "Build relationships with the district's local communities",
+        "Own hiring and succession planning for store leadership"
+      ],
+      "requirements": "5+ years of retail experience managing multiple stores, departments, or units, including P&L, inventory, and operations — usually reached by promotion from Store Manager.",
+      "pay": { "range": "≈$105,000–$135,000/year total pay", "note": "Synthesized from multiple 2026 salary-aggregator reports (ZipRecruiter, Indeed, and others), which cluster in the low-$100Ks to mid-$100Ks depending on district size and region.", "confidence": "estimated" },
+      "pathToNext": "Beyond District Manager, Starbucks' regional and corporate retail-operations leadership roles (Regional Director and above) draw heavily from this same internal pipeline."
+    }
+  ],
+  "howToApply": {
+    "external": {
+      "label": "New to Starbucks",
+      "portal": "apply.starbucks.com/careers",
+      "steps": [
+        "Explore open roles on the Career Hub and read the job description closely — it lists exactly what the role expects and offers.",
+        "Create a profile, upload a resume, and turn on job alerts for the role and location you want.",
+        "Click Apply and submit your application online.",
+        "Watch for an email confirmation, then track status through the Career Hub — a recruiter or coffeehouse leader reaches out directly if you're selected."
+      ]
+    },
+    "internal": {
+      "label": "Current partners (promotion track)",
+      "portal": "careerjourney.starbucks.com/careerhub",
+      "description": "Existing partners use the same Career Hub, signed in through the partner portal, to see and apply for internal-only postings — this is the normal route from Barista into Shift Supervisor and beyond. Many partners also start by simply telling their store manager they're interested; managers can recommend strong partners for the next level's training program directly."
+    },
+    "tips": [
+      "Lead your resume with a clear headline and quantify impact from your current role — don't just restate the job description.",
+      "Connect your experience directly to the priorities listed in the job posting you're applying to.",
+      "List any Starbucks trainings, certifications, or recognitions you've completed if you're already a partner.",
+      "Prepare specific, story-based examples for behavioral interview questions, plus 3–5 questions of your own for the interviewer.",
+      "Send a thank-you note within 48 hours of an interview."
+    ],
+    "trainingMilestones": "New partners get essential training in their first month, with additional structured training checkpoints at 90 days and 190 days — the same on-ramp used before any leadership training program begins."
+  }
+}
