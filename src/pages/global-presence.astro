@@ -1,0 +1,160 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import countries from "../data/countries.json";
+import usStates from "../data/usStates.json";
+import cities from "../data/cities.json";
+
+const sortedCountries = [...countries].sort((a, b) => b.stores - a.stores);
+const sortedStates = [...usStates.states].sort((a, b) => b.stores - a.stores);
+---
+<Layout title="Global Presence" active="global">
+  <Hero
+    kicker="Section 04"
+    title="One globe, 68 markets, drill-down to state and city"
+    description="Click a marker (or use the dropdown) to open a market's profile — store count, ownership model, and, where the data exists, the states or cities behind the number."
+  />
+
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="mb-6 flex flex-wrap items-center gap-4">
+      <label class="flex-1 min-w-[220px]">
+        <span class="mb-1 block text-xs font-semibold uppercase tracking-wide text-green-700">Jump to a market</span>
+        <select id="country-select" class="w-full rounded-lg border border-green-900/20 bg-white px-3 py-2 text-sm">
+          <option value="">Select a country…</option>
+        </select>
+      </label>
+      <label class="flex items-center gap-2 text-sm font-medium text-espresso">
+        <input type="checkbox" id="toggle-roasteries" checked class="h-4 w-4 rounded accent-green-700" />
+        Show Reserve Roasteries
+      </label>
+      <label class="flex items-center gap-2 text-sm font-medium text-espresso">
+        <input type="checkbox" id="toggle-rotate" checked class="h-4 w-4 rounded accent-green-700" />
+        Auto-rotate
+      </label>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[1fr_360px]">
+      <div class="card relative h-[520px] overflow-hidden bg-green-950 sm:h-[620px]">
+        <div id="globe-canvas" class="h-full w-full"></div>
+        <div class="pointer-events-none absolute bottom-3 left-3 flex flex-wrap gap-2 text-[11px]">
+          <span class="rounded-full bg-black/40 px-2.5 py-1 text-cream backdrop-blur">
+            <span class="mr-1 inline-block h-2 w-2 rounded-full bg-[#14684f] align-middle"></span>Reported
+          </span>
+          <span class="rounded-full bg-black/40 px-2.5 py-1 text-cream backdrop-blur">
+            <span class="mr-1 inline-block h-2 w-2 rounded-full bg-[#7fb59a] align-middle"></span>Estimated
+          </span>
+          <span class="rounded-full bg-black/40 px-2.5 py-1 text-cream backdrop-blur">
+            <span class="mr-1 inline-block h-2 w-2 rounded-full bg-[#c6a664] align-middle"></span>Reserve Roastery
+          </span>
+        </div>
+      </div>
+
+      <aside id="country-panel" class="card h-fit p-6 lg:sticky lg:top-20">
+        <p class="text-sm text-espresso-soft">Loading…</p>
+      </aside>
+    </div>
+
+    <p class="mt-4 text-xs text-espresso-soft/70">
+      Marker size and glow height scale with store count (log scale). Drag to rotate, scroll to zoom, click any
+      marker for its profile.
+    </p>
+  </section>
+
+  <script src="../scripts/globe-init.ts"></script>
+
+  <section id="us-states-table" class="border-t border-green-900/10 bg-green-100/50 scroll-mt-20">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="A" title="United States, all 50 states + D.C." description={`Top 10 states account for ${usStates.top10Share} of the U.S. total. Six are directly reported by Starbucks/retail-analytics; the rest are population-weighted estimates.`} />
+      <div class="card overflow-hidden">
+        <div class="max-h-[520px] overflow-y-auto">
+          <table class="w-full text-sm">
+            <thead class="sticky top-0 bg-green-900 text-left text-cream">
+              <tr>
+                <th class="px-4 py-3 font-semibold">#</th>
+                <th class="px-4 py-3 font-semibold">State</th>
+                <th class="px-4 py-3 font-semibold text-right">Stores</th>
+                <th class="px-4 py-3 font-semibold">Confidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedStates.map((s, i) => (
+                <tr class="border-b border-green-900/10 last:border-0 even:bg-green-50/50">
+                  <td class="px-4 py-2.5 text-espresso-soft">{i + 1}</td>
+                  <td class="px-4 py-2.5 font-medium">{s.name}</td>
+                  <td class="px-4 py-2.5 text-right font-display">{s.stores.toLocaleString()}</td>
+                  <td class="px-4 py-2.5">
+                    <span class={`badge ${s.confidence === "reported" ? "badge-reported" : "badge-estimated"}`}>{s.confidence}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="B" title="Notable cities & Reserve Roasteries" description="Starbucks doesn't publish city-level counts anywhere — these are the best publicly reported estimates plus the seven flagship Reserve Roastery locations." />
+    <div class="grid gap-6 sm:grid-cols-2">
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Most Starbucks-saturated cities (estimated)</h3>
+        <ul class="mt-3 space-y-2">
+          {cities.mostSaturatedCities.map((c) => (
+            <li class="flex items-center justify-between border-b border-green-900/10 py-1.5 text-sm last:border-0">
+              <span>{c.city}, <span class="text-espresso-soft">{c.country}</span></span>
+              <span class="font-display font-semibold text-green-800">{c.stores.toLocaleString()}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Reserve Roasteries (flagship stores)</h3>
+        <ul class="mt-3 space-y-2">
+          {cities.flagshipRoasteries.map((r) => (
+            <li class="border-b border-green-900/10 py-1.5 text-sm last:border-0">
+              <div class="flex items-center justify-between">
+                <span class="font-medium">{r.city}, {r.country}</span>
+                <span class="text-espresso-soft">{r.opened}</span>
+              </div>
+              <p class="text-xs text-espresso-soft/80">{r.type}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="C" title="Full country table" description="All 68 tracked markets, sorted by store count. Six of the world's largest markets are shown separately in the globe legend; the rest reflect Starbucks' broader licensed network." />
+      <div class="card overflow-hidden">
+        <div class="max-h-[600px] overflow-y-auto">
+          <table class="w-full text-sm">
+            <thead class="sticky top-0 bg-green-900 text-left text-cream">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Country</th>
+                <th class="px-4 py-3 font-semibold">Region</th>
+                <th class="px-4 py-3 font-semibold text-right">Stores</th>
+                <th class="px-4 py-3 font-semibold">Model</th>
+                <th class="px-4 py-3 font-semibold">Confidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedCountries.map((c) => (
+                <tr class="border-b border-green-900/10 last:border-0 even:bg-green-50/50">
+                  <td class="px-4 py-2.5 font-medium">{c.name}</td>
+                  <td class="px-4 py-2.5 text-espresso-soft">{c.region}</td>
+                  <td class="px-4 py-2.5 text-right font-display">{c.stores.toLocaleString()}</td>
+                  <td class="px-4 py-2.5 text-espresso-soft">{c.model}</td>
+                  <td class="px-4 py-2.5"><span class={`badge ${c.confidence === "reported" ? "badge-reported" : "badge-estimated"}`}>{c.confidence}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

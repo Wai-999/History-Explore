@@ -1,0 +1,36 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  active?: string;
+}
+
+const {
+  title,
+  description = "An independent, deeply-researched data hub covering Starbucks' history, global store footprint, coffee sourcing, supply chain and menu.",
+  active = "",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <meta name="description" content={description} />
+    <title>{title} · Starbucks Data Hub</title>
+  </head>
+  <body class="min-h-screen bg-cream text-espresso antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-green-700 focus:text-white focus:px-4 focus:py-2">Skip to content</a>
+    <Nav active={active} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

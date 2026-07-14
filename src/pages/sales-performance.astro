@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StatCard from "../components/StatCard.astro";
+import sales from "../data/sales.json";
+---
+<Layout title="Sales & Performance" active="sales">
+  <Hero
+    kicker="Section 07"
+    title="$37.2 billion in FY2025 — and the clearest look yet at the turnaround"
+    description="Revenue by segment and category, the comparable-sales slump and its recovery quarter by quarter, and the markets carrying the most weight."
+  />
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <StatCard value={`$${sales.totalNetRevenue.toLocaleString()}M`} label={sales.fiscalYear} note={`${sales.revenueGrowth} vs. FY2024`} />
+      <StatCard value={sales.marketCap.value} label="Market capitalization" note={sales.marketCap.asOf} />
+      <StatCard value={`${sales.loyaltyProgram.activeUSMembers}M`} label="Active U.S. Rewards members" note={sales.loyaltyProgram.activeUSMembersAsOf} />
+      <StatCard value={`${sales.loyaltyProgram.mobileOrderShareOfTransactions}%`} label="Transactions via mobile order" />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+    <SectionHeading num="A" title="Revenue by segment & product" />
+    <div class="grid gap-6 lg:grid-cols-2">
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Net revenue by reporting segment</h3>
+        <div class="mt-4 h-64"><canvas id="segment-chart"></canvas></div>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Company-operated retail sales mix</h3>
+        <div class="mt-4 h-64"><canvas id="mix-chart"></canvas></div>
+        <p class="mt-3 text-xs text-espresso-soft/70">A separate consolidated-revenue view (including packaged goods & channel development) puts beverages at {sales.revenueByProductConsolidated[0].share}%, other products at {sales.revenueByProductConsolidated[1].share}%, and food at {sales.revenueByProductConsolidated[2].share}% — the split above reflects company-operated store sales only.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="B" title="The comparable-sales turnaround, quarter by quarter" description={sales.comparableStoreSalesNote} />
+      <div class="card p-6">
+        <div class="h-72"><canvas id="comps-chart"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="C" title="Top markets by store count" />
+    <div class="card p-6">
+      <div class="h-80"><canvas id="markets-chart"></canvas></div>
+    </div>
+  </section>
+
+  <script src="../scripts/sales-charts.ts"></script>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="D" title="The cost of the turnaround" />
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <StatCard value={sales.restructuring.fy2025Charges} label="FY2025 restructuring & impairment charges" />
+        <StatCard value={String(sales.restructuring.fy2025StoreClosures)} label="Stores closed in FY2025" />
+        <StatCard value={sales.restructuring.fy2026ExpectedCharges} label="FY2026 expected charges" />
+        <StatCard value={sales.restructuring.fy2026StoreGuidance} label="FY2026 plan" />
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StatCard from "../components/StatCard.astro";
+import coffeeOrigins from "../data/coffeeOrigins.json";
+---
+<Layout title="Coffee & Sourcing" active="coffee">
+  <Hero
+    kicker="Section 05"
+    title="Where the beans actually come from"
+    description="100% arabica, bought from 450,000+ farmers across roughly 30 countries in three growing regions — verified against a 200-plus-point ethics program."
+  />
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <StatCard value="450,000+" label="Coffee farmers in the network" />
+      <StatCard value="30+" label="Sourcing countries" />
+      <StatCard value="99%" label="Ethically sourced & verified" />
+      <StatCard value="70" label='Smallholder "model farms"' />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+    <SectionHeading num="A" title="Sourcing regions" description={coffeeOrigins.summary} />
+    <div class="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Sourcing countries by region</h3>
+        <div class="mt-4 h-64"><canvas id="region-chart"></canvas></div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-1">
+        {coffeeOrigins.regions.map((r) => (
+          <div class="card p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display text-lg font-semibold text-green-800">{r.region}</h3>
+              <span class="badge badge-reported">{r.countryCount} countries</span>
+            </div>
+            <p class="mt-2 text-sm text-espresso-soft">{r.share}</p>
+            <p class="mt-1 text-xs italic text-espresso-soft/70">Flavor profile: {r.flavorProfile}</p>
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {r.countries.map((c) => (
+                <span class="rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-800">{c}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script src="../scripts/coffee-charts.ts"></script>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="B" title="C.A.F.E. Practices — the ethics program behind the beans" />
+      <div class="card p-6">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-green-700">Launched</p>
+            <p class="mt-1 font-display text-xl font-semibold">{coffeeOrigins.cafePractices.launched} <span class="text-sm font-sans font-normal text-espresso-soft">with {coffeeOrigins.cafePractices.partner}</span></p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-green-700">Coverage today</p>
+            <p class="mt-1 font-display text-xl font-semibold">{coffeeOrigins.cafePractices.verifiedShare}</p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-green-700">Indicators measured</p>
+            <p class="mt-1 font-display text-xl font-semibold">{coffeeOrigins.cafePractices.indicatorCount}</p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-green-700">Farms covered</p>
+            <p class="mt-1 font-display text-xl font-semibold">{coffeeOrigins.cafePractices.farmsCovered}</p>
+          </div>
+        </div>
+        <p class="mt-5 border-t border-green-900/10 pt-4 text-sm leading-relaxed text-espresso-soft">{coffeeOrigins.cafePractices.update2025}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="C" title="Research farm & model farms" />
+    <div class="card p-6">
+      <p class="text-sm leading-relaxed text-espresso-soft">{coffeeOrigins.farmerNetwork.researchFarm}</p>
+    </div>
+    <div class="mt-6 card p-6">
+      <p class="text-espresso-soft">
+        The full roasting and distribution network that turns these beans into store-ready coffee is covered next, in
+        <a href="/supply-chain/" class="font-semibold text-green-800 underline underline-offset-2">Supply Chain & Workforce</a>.
+      </p>
+    </div>
+  </section>
+</Layout>

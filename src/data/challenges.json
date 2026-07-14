@@ -1,0 +1,72 @@
+{
+  "solved": [
+    {
+      "title": "Over-expansion diluted the brand (2007–2008)",
+      "problem": "Starbucks had chased growth so aggressively — often opening stores within sight of each other — that quality and the in-store experience suffered. Espresso machines had gotten taller, blocking the barista-customer connection that made the format special in the first place.",
+      "response": "Howard Schultz returned as CEO in January 2008, closed roughly 600 underperforming U.S. stores, and — in a move that cost an estimated $6M in lost sales in one afternoon — shut 7,100 U.S. stores for three hours to retrain every barista on espresso fundamentals.",
+      "outcome": "The stock, which fell to $2.85, recovered to $9.16 by the end of 2009 and the company entered a decade of disciplined, more profitable growth."
+    },
+    {
+      "title": "The 2008–09 financial crisis",
+      "problem": "A collapsing economy hit discretionary spending on $4 lattes especially hard, compounding the over-expansion problem.",
+      "response": "Beyond store closures, Starbucks cut costs, resisted the temptation to raise prices, invested in value plays and loyalty, and launched VIA Instant coffee to meet budget-conscious customers where they were.",
+      "outcome": "Starbucks returned to sustained comparable-sales growth through the following decade."
+    },
+    {
+      "title": "Racial-bias incident in Philadelphia (2018)",
+      "problem": "Two Black men were arrested at a Philadelphia Starbucks after being denied restroom access without a purchase — a moment that triggered national scrutiny of bias in customer service.",
+      "response": "Starbucks closed more than 8,000 U.S. company-operated stores for an afternoon of company-wide racial-bias training for roughly 175,000 employees, and changed policy to open restrooms and seating to anyone, purchase or not.",
+      "outcome": "The policy change reshaped how the 'third place' promise is applied in practice, though it also introduced new operational and safety challenges that the company is still managing today."
+    },
+    {
+      "title": "Australia's failed expansion (2000–2008)",
+      "problem": "Starbucks expanded to 87 Australian stores in eight years by importing its U.S. playbook wholesale, without adapting to a market that already had a mature, independent café culture. The business reportedly lost around $105M.",
+      "response": "In 2008 Starbucks closed 61 of its 87 Australian stores in a single year. In 2014 it sold the remaining stores to a local operator (then Withers Group, now Australian Venue Co.) instead of running the market directly.",
+      "outcome": "Under local ownership, Australia has slowly rebuilt to roughly 80 stores today — a fraction of the ambitions of 2008, but stable. It remains a widely taught business-school case study in expansion without localization."
+    },
+    {
+      "title": "COVID-19 disruption (2020)",
+      "problem": "Lockdowns eliminated in-store dwell time — the core of the 'third place' model — almost overnight.",
+      "response": "Starbucks accelerated drive-thru, curbside pickup and mobile-order-only store formats that had already been in early testing.",
+      "outcome": "Digital ordering, already a growth area, became structurally embedded in the business — mobile order & pay now accounts for roughly 31% of U.S. transactions."
+    }
+  ],
+  "current": [
+    {
+      "title": "A prolonged U.S. sales slump",
+      "description": "Comparable store sales fell for eight straight quarters (roughly late 2023 through mid-2025) as customers pushed back on price, slow service from over-customized orders, and a store experience that had been stripped down for efficiency. Global comps only turned positive again in Q4 FY2025 (+1%), accelerating to +6.2% by Q2 FY2026 under the 'Back to Starbucks' plan.",
+      "status": "improving"
+    },
+    {
+      "title": "Labor relations and unionization",
+      "description": "Starbucks Workers United, founded in Buffalo in December 2021, has organized hundreds of U.S. stores. In November 2025, 92%-authorized strikers walked out across 65 cities during Red Cup Day in the union's longest action yet (131 days). The union and company remain in contract talks, with 600+ unresolved unfair-labor-practice charges outstanding and disputes over wage floors and minimum staffing.",
+      "status": "unresolved"
+    },
+    {
+      "title": "Losing ground in China to Luckin Coffee",
+      "description": "Luckin Coffee overtook Starbucks in both store count and sales in China, undercutting on price (roughly $1.40 vs. $4.21 for a small Americano) and using a franchise-style model to expand into lower-tier cities faster than Starbucks' self-operated approach could match. Starbucks' China revenue fell from about $3.7B (2021) to about $3.0B (2024), and its Shanghai market share roughly halved.",
+      "status": "restructuring",
+      "response": "In November 2025, Starbucks sold 60% of its China business to Boyu Capital in a joint venture valued at $4B, trading control for local capital, faster real-estate/format decisions, and continued expansion into smaller Chinese cities."
+    },
+    {
+      "title": "The cost of the turnaround itself",
+      "description": "The 'Back to Starbucks' plan is not free: roughly $892M in FY2025 restructuring and impairment charges, 627 store closures, about 1,100 corporate layoffs in February 2025 plus another ~900 non-retail roles cut later in the year, and a further ~$230M in restructuring charges guided for FY2026.",
+      "status": "in progress"
+    },
+    {
+      "title": "Rebuilding the 'third place' after stripping it out",
+      "description": "Years of efficiency-focused redesigns had removed much of the seating, ceramic mugs, and condiment bars that once defined the in-store experience. The turnaround plan is now reversing that — restoring comfortable seating, free refills and self-serve condiments, and remodeling roughly 1,000 U.S. stores by the end of 2026 — an acknowledgment that the earlier efficiency drive went too far.",
+      "status": "in progress"
+    },
+    {
+      "title": "Sustainability targets falling behind schedule",
+      "description": "Starbucks committed in 2020 to cut carbon, water and waste footprints 50% by 2030 (vs. a 2019 baseline) and become 'resource positive.' Instead, carbon emissions rose roughly 14% between 2019 and 2023, raising questions about whether the 2030 goals are still achievable on the current trajectory.",
+      "status": "at risk"
+    },
+    {
+      "title": "Consumer boycotts and brand-perception headwinds",
+      "description": "Starbucks faced consumer boycotts in several markets in 2023–2024 tied to broader Israel-Gaza-related political sentiment and a related trademark lawsuit against Workers United over union messaging — pressure that compounded the traffic declines the turnaround plan is now trying to reverse.",
+      "status": "ongoing"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-espresso: #1b1410;
+  --color-espresso-soft: #362a22;
+  --color-cream: #faf6ee;
+  --color-cream-deep: #f0e9d8;
+  --color-green-900: #0a2e24;
+  --color-green-800: #0d3d30;
+  --color-green-700: #0f4f3d;
+  --color-green-600: #14684f;
+  --color-green-500: #1e8a63;
+  --color-green-100: #e4efe7;
+  --color-gold: #c6a664;
+  --color-gold-light: #e7d5a8;
+  --color-berry: #8a3b3b;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Reusable card */
+.card {
+  background: white;
+  border: 1px solid rgba(15, 79, 61, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(27, 20, 16, 0.04);
+}
+
+/* Confidence badges used across data pages */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+}
+.badge-reported {
+  background: var(--color-green-100);
+  color: var(--color-green-800);
+}
+.badge-estimated {
+  background: var(--color-gold-light);
+  color: #6b5424;
+}
+
+/* Section number chip used in headers */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  border-radius: 999px;
+  background: var(--color-green-700);
+  color: white;
+}
+
+::selection {
+  background: var(--color-gold-light);
+  color: var(--color-espresso);
+}
+
+/* Scrollbar polish (webkit) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-cream-deep); }
+::-webkit-scrollbar-thumb { background: var(--color-green-600); border-radius: 999px; }
+
+.prose-hub p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: var(--color-espresso-soft);
+}
+.prose-hub h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,102 @@
+{
+  "categories": [
+    {
+      "name": "Espresso",
+      "description": "Built on Starbucks Espresso Roast or the milder Blonde Espresso.",
+      "examples": ["Caffè Americano", "Caffè Latte", "Cappuccino", "Flat White", "Caramel Macchiato", "Mocha", "Cortado"]
+    },
+    {
+      "name": "Brewed Coffee",
+      "description": "Drip-brewed, filter coffee — including cold formats.",
+      "examples": ["Pike Place Roast", "Blonde Roast", "Dark Roast", "Cold Brew", "Nitro Cold Brew"]
+    },
+    {
+      "name": "Frappuccino® Blended Beverages",
+      "description": "Blended ice drinks in coffee and crème (non-coffee) bases.",
+      "examples": ["Mocha Frappuccino", "Caramel Frappuccino", "Java Chip Frappuccino", "Strawberry Crème Frappuccino"]
+    },
+    {
+      "name": "Refreshers",
+      "description": "Fruit-forward, gently caffeinated drinks made with green coffee extract instead of espresso.",
+      "examples": ["Pink Drink", "Mango Dragonfruit Refresher", "Strawberry Açaí Refresher"]
+    },
+    {
+      "name": "Tea & Teavana",
+      "description": "Hot and iced tea, matcha, and steamed-milk tea drinks.",
+      "examples": ["Chai Latte", "Matcha Latte", "Iced Black Tea", "Honey Citrus Mint Tea"]
+    },
+    {
+      "name": "Iced & Shaken Espresso",
+      "description": "Espresso shaken over ice, often with flavored syrups.",
+      "examples": ["Iced Shaken Espresso", "Iced Brown Sugar Oatmilk Shaken Espresso"]
+    },
+    {
+      "name": "Seasonal & Limited-Time",
+      "description": "Rotating drinks tied to a season or cultural moment.",
+      "examples": ["Pumpkin Spice Latte", "Peppermint Mocha", "Summer-Berry Refreshers"]
+    },
+    {
+      "name": "Bottled / Ready-to-Drink",
+      "description": "Packaged for grocery and convenience channels via the PepsiCo (North America RTD) and Nestlé (global CPG) partnerships.",
+      "examples": ["Bottled Frappuccino", "Doubleshot Espresso", "Bottled Cold Brew"]
+    },
+    {
+      "name": "Reserve® / Roastery Exclusives",
+      "description": "Small-lot, single-origin coffees and specialty preparations available at Reserve bars and Roasteries.",
+      "examples": ["Reserve pour-overs", "Nitro Reserve", "Affogato-style drinks"]
+    }
+  ],
+  "buildHierarchy": {
+    "description": "How a Starbucks drink is assembled, from raw foundation to the cup handed to the customer. Baristas are actually trained to build the cup in call-out order: temperature, size, syrup, milk/modifications, drink name, extras — but the physical construction of the drink itself follows the layers below.",
+    "steps": [
+      {
+        "level": 1,
+        "title": "Foundation",
+        "description": "The raw material: 100% arabica beans, roasted at one of six global roasting plants.",
+        "options": ["Espresso Roast", "Blonde Espresso", "Pike Place Roast", "Single-origin Reserve beans", "Tea leaves / matcha", "Green coffee extract (Refreshers)"]
+      },
+      {
+        "level": 2,
+        "title": "Liquid Base",
+        "description": "How the foundation is turned into a liquid.",
+        "options": ["Espresso shots (1–4)", "Drip-brewed coffee", "Cold brew steeped 20 hours", "Steeped tea", "Blended Frappuccino base"]
+      },
+      {
+        "level": 3,
+        "title": "Temperature & Format",
+        "description": "Hot, iced, or blended — this decides the cup and prep method.",
+        "options": ["Hot", "Iced", "Blended (Frappuccino)"]
+      },
+      {
+        "level": 4,
+        "title": "Milk / Dairy Alternative",
+        "description": "Steamed, cold-foamed, or poured over ice.",
+        "options": ["Whole milk", "2% milk", "Nonfat milk", "Oat milk", "Almond milk", "Coconut milk", "Soy milk", "Heavy cream"]
+      },
+      {
+        "level": 5,
+        "title": "Flavor",
+        "description": "Syrups and sauces added to taste.",
+        "options": ["Vanilla", "Caramel", "Mocha sauce", "Hazelnut", "Seasonal syrups (pumpkin, peppermint)"]
+      },
+      {
+        "level": 6,
+        "title": "Ice, Foam & Whip",
+        "description": "Texture adjustments.",
+        "options": ["Ice level", "Cold foam", "Whipped cream", "Milk foam"]
+      },
+      {
+        "level": 7,
+        "title": "Finishing Touches",
+        "description": "The last details before handoff.",
+        "options": ["Caramel/mocha drizzle", "Spice topping (cinnamon, nutmeg)", "Cup sizing & lid", "Name called at handoff"]
+      },
+      {
+        "level": 8,
+        "title": "Finished Drink",
+        "description": "The named, customer-ready beverage.",
+        "options": ["e.g., a Grande Iced Oatmilk Caramel Macchiato with light ice and extra drizzle"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Logo from "../components/Logo.astro";
+import StatCard from "../components/StatCard.astro";
+import countries from "../data/countries.json";
+
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (base.endsWith("/") ? base.slice(0, -1) : base) + href;
+
+const totalStores = 40990;
+const totalCountries = 89;
+const totalPartners = "381,000";
+const revenue = "$37.2B";
+
+const sections = [
+  { href: "/history/", num: "01", title: "History & Milestones", desc: "From a single Pike Place Market bean shop in 1971 to a 40,990-store global chain — the founders, the Schultz era, and the decisions that built the brand." },
+  { href: "/challenges/", num: "02", title: "Challenges & Solutions", desc: "How Starbucks solved its worst crises — the 2008 collapse, Australia's failed launch, the Philadelphia incident — and the problems it's still fighting today." },
+  { href: "/culture/", num: "03", title: "Culture & Values", desc: "The 'third place' philosophy, partner benefits, Bean Stock equity, and the five core values guiding 381,000 employees worldwide." },
+  { href: "/global-presence/", num: "04", title: "Global Presence", desc: "An interactive 3D globe of every market Starbucks operates in — drill from country, down to state/province, down to city." },
+  { href: "/coffee-sourcing/", num: "05", title: "Coffee & Sourcing", desc: "Where the beans actually come from: 30+ origin countries across three growing regions, and the C.A.F.E. Practices ethics program behind them." },
+  { href: "/supply-chain/", num: "06", title: "Supply Chain & Workforce", desc: "Farmer Support Centers, six global roasting plants, and how 381,000 'partners' keep the whole chain running." },
+  { href: "/sales-performance/", num: "07", title: "Sales & Performance", desc: "Revenue by segment and category, comparable-sales trends through the turnaround, and the top-performing markets." },
+  { href: "/menu/", num: "08", title: "Menu Explorer", desc: "Every drink category, and the layer-by-layer hierarchy from raw bean to the finished cup handed across the counter." },
+];
+---
+<Layout title="Home" active="home">
+  <section class="relative overflow-hidden bg-gradient-to-b from-green-900 via-green-800 to-green-700 text-cream">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <div class="flex items-center gap-3 text-gold-light">
+        <Logo class="h-10 w-10" />
+        <span class="text-sm font-semibold uppercase tracking-[0.25em]">Independent research project</span>
+      </div>
+      <h1 class="mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.1] text-white sm:text-6xl">
+        A full data hub on how Starbucks became Starbucks.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-cream/85">
+        History, culture, an interactive 3D globe of every market down to city level, coffee sourcing,
+        supply chain, sales performance, and a full menu-build hierarchy — all in one place, sourced from
+        SEC filings, Starbucks' own reporting, and independent retail analytics through mid-2026.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={withBase("/global-presence/")} class="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-green-900 shadow-sm transition hover:bg-gold-light">
+          Explore the interactive globe →
+        </a>
+        <a href={withBase("/history/")} class="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+          Start with the history
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto -mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <StatCard value={totalStores.toLocaleString()} label="Stores worldwide" note="FY2025, Sept 28 2025" />
+      <StatCard value={String(totalCountries)} label="Countries & territories" note="Company-operated + licensed" />
+      <StatCard value={totalPartners} label="Partners (employees)" note="+5.5% year over year" />
+      <StatCard value={revenue} label="FY2025 net revenue" note="+3% vs. FY2024" />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <div class="mb-10 max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-green-700">Eight sections, one story</p>
+      <h2 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">Read it in order, or jump straight to what you need.</h2>
+      <p class="mt-3 text-espresso-soft">
+        The hub is arranged to read like a briefing: brand story first, then footprint, then operations,
+        then performance, then product. Every page cites how current and how confident each figure is.
+      </p>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {sections.map((s) => (
+        <a href={withBase(s.href)} class="card group flex flex-col p-6 transition hover:-translate-y-0.5 hover:shadow-md">
+          <span class="chip h-9 w-9 text-xs">{s.num}</span>
+          <h3 class="mt-4 font-display text-xl font-semibold text-espresso group-hover:text-green-700">{s.title}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-espresso-soft">{s.desc}</p>
+          <span class="mt-4 text-sm font-semibold text-green-700">Open section →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-y border-green-900/10 bg-green-100/60">
+    <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div class="grid gap-8 md:grid-cols-2">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-green-700">Top 6 markets by store count</p>
+          <ul class="mt-4 space-y-2">
+            {countries.filter(c => c.headline).sort((a,b)=>b.stores-a.stores).slice(0,6).map((c) => (
+              <li class="flex items-center justify-between border-b border-green-900/10 py-2 text-sm">
+                <span class="font-medium">{c.name}</span>
+                <span class="font-display text-espresso">{c.stores.toLocaleString()}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-green-700">A note on the data</p>
+          <p class="mt-4 text-sm leading-relaxed text-espresso-soft">
+            Starbucks reports store counts by country in its 10-K and quarterly earnings releases, but it
+            does not publish an official breakdown by state/province or city anywhere in the world. Where
+            this hub shows that level of detail, figures are the best available third-party estimates —
+            always labeled <span class="badge badge-reported">Reported</span> or
+            <span class="badge badge-estimated">Estimated</span> so you can judge how much to trust them.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

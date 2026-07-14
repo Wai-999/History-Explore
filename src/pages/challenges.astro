@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import data from "../data/challenges.json";
+
+const statusColor: Record<string, string> = {
+  improving: "badge-reported",
+  unresolved: "badge-estimated",
+  restructuring: "badge-estimated",
+  "in progress": "badge-estimated",
+  "at risk": "badge-estimated",
+  ongoing: "badge-estimated",
+};
+---
+<Layout title="Challenges & Solutions" active="challenges">
+  <Hero
+    kicker="Section 02 — Our Story"
+    title="Every big company breaks. What matters is the repair."
+    description="Starbucks has weathered self-inflicted over-expansion, a global financial crisis, a national reckoning over bias, and a pandemic — and is mid-repair on a fresh set of problems right now."
+  />
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="A" title="Problems it solved" description="Five crises, and the specific decisions that resolved them." />
+    <div class="space-y-6">
+      {data.solved.map((c) => (
+        <div class="card overflow-hidden">
+          <div class="border-b border-green-900/10 bg-green-900 px-6 py-4">
+            <h3 class="font-display text-lg font-semibold text-white">{c.title}</h3>
+          </div>
+          <div class="grid gap-6 p-6 sm:grid-cols-3">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-berry">Problem</p>
+              <p class="mt-1.5 text-sm leading-relaxed text-espresso-soft">{c.problem}</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-green-700">Response</p>
+              <p class="mt-1.5 text-sm leading-relaxed text-espresso-soft">{c.response}</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-gold">Outcome</p>
+              <p class="mt-1.5 text-sm leading-relaxed text-espresso-soft">{c.outcome}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="B" title="Problems it's facing right now" description="Live, unresolved, or mid-repair as of mid-2026." />
+      <div class="space-y-5">
+        {data.current.map((c) => (
+          <div class="card p-6">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="font-display text-lg font-semibold text-espresso">{c.title}</h3>
+              <span class={`badge ${statusColor[c.status] ?? "badge-estimated"}`}>{c.status}</span>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-espresso-soft">{c.description}</p>
+            {c.response && (
+              <p class="mt-3 rounded-lg bg-green-100/70 p-3 text-sm leading-relaxed text-green-900">
+                <span class="font-semibold">Starbucks' response: </span>{c.response}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="card p-8">
+      <p class="text-espresso-soft">
+        For the market-by-market picture behind the China divestment and the U.S. store base, see
+        <a href="/global-presence/" class="font-semibold text-green-800 underline underline-offset-2">Global Presence</a>.
+        For the financial trajectory of the turnaround itself, see
+        <a href="/sales-performance/" class="font-semibold text-green-800 underline underline-offset-2">Sales & Performance</a>.
+      </p>
+    </div>
+  </section>
+</Layout>

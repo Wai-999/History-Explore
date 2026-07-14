@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import culture from "../data/culture.json";
+import supplyChain from "../data/supplyChain.json";
+---
+<Layout title="Culture & Values" active="culture">
+  <Hero
+    kicker="Section 03 — Our Story"
+    title="The philosophy behind the brand"
+    description="A 'third place' concept borrowed from sociology, five core values written with partner input, and a benefits package the company has long marketed as 'the best job in retail.'"
+  />
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="A" title="Mission & the Third Place" />
+    <div class="card p-8">
+      <p class="font-display text-2xl leading-snug text-green-800">"{culture.mission}"</p>
+      <p class="mt-3 text-sm text-espresso-soft">Updated {culture.missionUpdated}</p>
+    </div>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Where "Third Place" comes from</h3>
+        <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{culture.thirdPlace.origin}</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">What it means in practice</h3>
+        <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{culture.thirdPlace.idea}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="B" title="Five core values" description={`Introduced ${culture.coreValuesIntroduced}.`} />
+      <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        {culture.coreValues.map((v) => (
+          <div class="card p-5 text-center">
+            <p class="font-display text-lg font-semibold text-green-800">{v.name}</p>
+            <p class="mt-1.5 text-xs leading-relaxed text-espresso-soft">{v.description}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {culture.stakeholderPromises.map((p) => (
+          <span class="rounded-full bg-white px-3 py-1.5 text-sm font-medium text-green-800 ring-1 ring-green-900/10">{p}</span>
+        ))}
+      </div>
+      <p class="mt-3 text-xs text-espresso-soft">Starbucks frames its mission as six stakeholder promises, shown above.</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="C" title="Partners, not employees" />
+    <div class="card p-6">
+      <p class="text-sm leading-relaxed text-espresso-soft">{culture.partnerLanguage}</p>
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2">
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Healthcare & equity</h3>
+        <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{supplyChain.benefits.healthcare}</p>
+        <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{supplyChain.benefits.equity}</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Debt-free college</h3>
+        <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{supplyChain.benefits.education}</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Total compensation</h3>
+        <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{supplyChain.benefits.averageTotalCompensation}. {supplyChain.benefits.fy2025Investment}.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Family leave</h3>
+        <p class="mt-2 text-sm leading-relaxed text-espresso-soft">Parental leave was {supplyChain.benefits.parentalLeave.toLowerCase()} as part of the 2025 turnaround plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="D" title="Sustainability: ambitious goals, mixed progress" />
+      <div class="card p-6">
+        <p class="text-sm leading-relaxed text-espresso-soft"><span class="font-semibold text-green-800">Vision: </span>{culture.sustainability.vision}</p>
+        <p class="mt-3 text-sm leading-relaxed text-espresso-soft"><span class="font-semibold text-green-800">2030 goals: </span>{culture.sustainability.goals2030}</p>
+        <p class="mt-3 text-sm leading-relaxed text-espresso-soft"><span class="font-semibold text-green-800">Greener Stores: </span>{culture.sustainability.greenerStores}</p>
+        <p class="mt-4 rounded-lg bg-berry/10 p-3 text-sm leading-relaxed text-berry">
+          <span class="font-semibold">Reality check: </span>{culture.sustainability.challenge}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="E" title="Community & diversity" />
+    <div class="card p-6">
+      <h3 class="font-display text-lg font-semibold text-espresso">Community Stores</h3>
+      <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{culture.diversityAndCommunity.communityStores}</p>
+      <p class="mt-3 text-xs text-espresso-soft/70">{culture.diversityAndCommunity.note}</p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,32 @@
+{
+  "methodologyNote": "Starbucks does not publish an official city-by-city store count anywhere in the world. The figures below are the best publicly reported third-party estimates (news investigations, retail-analytics scrapes of the store locator, and Starbucks' own regional storytelling). Different sources use different city boundary definitions, so totals for the same city can vary widely between reports — this is noted where it happens.",
+  "mostSaturatedCities": [
+    { "city": "Seoul", "country": "South Korea", "lat": 37.57, "lng": 126.98, "stores": 284, "confidence": "estimated", "notes": "Most Starbucks of any city in the world by this count." },
+    { "city": "New York City", "country": "United States", "lat": 40.71, "lng": -74.01, "stores": 277, "confidence": "estimated", "notes": "Historically neck-and-neck with Seoul for the world's most Starbucks-saturated city." },
+    { "city": "Shanghai", "country": "China", "lat": 31.23, "lng": 121.47, "stores": 256, "confidence": "estimated", "notes": "Most Starbucks of any Chinese city. A separate, more recent estimate puts Shanghai closer to 600 stores — the spread illustrates how much city-level counts vary by source and date." },
+    { "city": "Chicago", "country": "United States", "lat": 41.88, "lng": -87.63, "stores": 184, "confidence": "estimated", "notes": "Long-running second-place U.S. city behind New York; also home to the world's largest Reserve Roastery." },
+    { "city": "Beijing", "country": "China", "lat": 39.90, "lng": 116.41, "stores": 170, "confidence": "estimated" },
+    { "city": "Tokyo", "country": "Japan", "lat": 35.68, "lng": 139.69, "stores": 160, "confidence": "estimated" },
+    { "city": "Guangzhou", "country": "China", "lat": 23.13, "lng": 113.26, "stores": 140, "confidence": "estimated" },
+    { "city": "Shenzhen", "country": "China", "lat": 22.54, "lng": 114.06, "stores": 130, "confidence": "estimated" },
+    { "city": "Los Angeles", "country": "United States", "lat": 34.05, "lng": -118.24, "stores": 120, "confidence": "estimated" },
+    { "city": "Mexico City", "country": "Mexico", "lat": 19.43, "lng": -99.13, "stores": 110, "confidence": "estimated" }
+  ],
+  "flagshipRoasteries": [
+    { "city": "Seattle", "country": "United States", "lat": 47.61, "lng": -122.33, "opened": 1971, "type": "Original Pike Place Market store", "notes": "The very first Starbucks, opened March 30, 1971. Still open and among the most visited retail addresses in Seattle." },
+    { "city": "Seattle", "country": "United States", "lat": 47.62, "lng": -122.32, "opened": 2014, "type": "Reserve Roastery (closed Sept 2025)", "notes": "The first Starbucks Reserve Roastery, opened on Capitol Hill in December 2014; closed in September 2025 as part of the broader restructuring." },
+    { "city": "Shanghai", "country": "China", "lat": 31.22, "lng": 121.46, "opened": 2017, "type": "Reserve Roastery", "notes": "Was the largest Starbucks location in the world when it opened (30,000 sq ft)." },
+    { "city": "Milan", "country": "Italy", "lat": 45.46, "lng": 9.19, "opened": 2018, "type": "Reserve Roastery", "notes": "Housed in the Palazzo Broggi, once Milan's stock exchange — a symbolic full-circle location given Howard Schultz's original inspiration came from Milanese espresso bars." },
+    { "city": "New York City", "country": "United States", "lat": 40.74, "lng": -74.00, "opened": 2018, "type": "Reserve Roastery (Chelsea, plus a second location in the Empire State Building)", "notes": "" },
+    { "city": "Tokyo", "country": "Japan", "lat": 35.64, "lng": 139.79, "opened": 2019, "type": "Reserve Roastery", "notes": "" },
+    { "city": "Chicago", "country": "United States", "lat": 41.89, "lng": -87.62, "opened": 2019, "type": "Reserve Roastery", "notes": "At 43,000 sq ft across five stories, the largest Starbucks on Earth." }
+  ],
+  "firstStoreInMarket": [
+    { "city": "Seattle", "country": "United States", "year": 1971 },
+    { "city": "Tokyo (Ginza)", "country": "Japan", "year": 1996 },
+    { "city": "Singapore", "country": "Singapore", "year": 1996 },
+    { "city": "London", "country": "United Kingdom", "year": 1998 },
+    { "city": "Beijing (China World Trade Center)", "country": "China", "year": 1999 },
+    { "city": "Milan", "country": "Italy", "year": 2018 }
+  ]
+}

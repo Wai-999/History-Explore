@@ -1,0 +1,40 @@
+{
+  "summary": "Starbucks buys 100% arabica coffee from more than 450,000 farmers across roughly 30 countries, grouped into three growing regions it calls the 'Coffee Belt.' Starbucks does not publish an exact percentage-of-purchases breakdown by country, so the chart below reflects the number of sourcing countries and representative examples per region rather than purchase volume.",
+  "regions": [
+    {
+      "region": "Latin America",
+      "countryCount": 14,
+      "share": "Largest share of purchases — Starbucks describes Latin America as providing its most consistent year-round quality and the base of most of its blends",
+      "flavorProfile": "Bright acidity with spice and nutty/chocolate undertones",
+      "countries": ["Colombia", "Brazil", "Guatemala", "Costa Rica", "Mexico", "Honduras", "Peru", "Nicaragua", "El Salvador", "Panama", "Bolivia", "Ecuador", "Dominican Republic", "Jamaica"]
+    },
+    {
+      "region": "Africa & Arabia",
+      "countryCount": 7,
+      "share": "Smaller but prized volume — sourced for distinctive, complex single-origin lots",
+      "flavorProfile": "Fruity, floral and winey with bright citrus and berry acidity",
+      "countries": ["Ethiopia", "Kenya", "Rwanda", "Tanzania", "Burundi", "Zambia", "Yemen"]
+    },
+    {
+      "region": "Asia-Pacific",
+      "countryCount": 8,
+      "share": "Smallest share by country count — used for earthy, full-bodied blends like Sumatra and Starbucks' own Yunnan, China sourcing",
+      "flavorProfile": "Earthy, herbal and full-bodied with low acidity",
+      "countries": ["Indonesia (Sumatra)", "Papua New Guinea", "China (Yunnan)", "Vietnam", "Thailand", "India", "Philippines", "Timor-Leste"]
+    }
+  ],
+  "cafePractices": {
+    "name": "C.A.F.E. Practices (Coffee and Farmer Equity)",
+    "launched": 2004,
+    "partner": "Developed with SCS Global Services",
+    "verifiedShare": "99% of coffee ethically sourced and third-party verified",
+    "indicatorCount": "200+ indicators across economic, social and environmental criteria",
+    "farmsCovered": "400,000+ farms",
+    "update2025": "A two-year revision launched a new Tier 1 core-standard in 2025, with progressive Tiers 2 and 3 to follow, rewarding best-in-class farms."
+  },
+  "farmerNetwork": {
+    "totalFarmers": 450000,
+    "modelFarms": 70,
+    "researchFarm": "Hacienda Alsacia, Costa Rica — Starbucks' own experimental coffee farm, used to test rust-resistant, climate-resilient varietals shared with the wider farmer network."
+  }
+}

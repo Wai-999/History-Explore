@@ -1,0 +1,15 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  description?: string;
+}
+const { num, title, description } = Astro.props;
+---
+<div class="mb-8 flex items-start gap-4">
+  <span class="chip h-10 w-10 text-sm">{num}</span>
+  <div>
+    <h2 class="font-display text-2xl font-semibold text-espresso sm:text-3xl">{title}</h2>
+    {description && <p class="mt-2 max-w-2xl text-espresso-soft">{description}</p>}
+  </div>
+</div>

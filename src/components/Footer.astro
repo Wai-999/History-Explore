@@ -1,0 +1,37 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="mt-24 border-t border-green-900/10 bg-green-900 text-cream/80">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div>
+        <p class="font-display text-lg font-semibold text-white">Starbucks Data Hub</p>
+        <p class="mt-2 text-sm leading-relaxed text-cream/70">
+          An independent, fan-made research project exploring Starbucks' history, global footprint,
+          supply chain and menu. Not affiliated with, endorsed by, or sponsored by Starbucks Corporation.
+        </p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-gold-light">Methodology</p>
+        <p class="mt-2 text-sm leading-relaxed text-cream/70">
+          Figures are compiled from Starbucks' SEC filings (10-K/10-Q/8-K), annual and Global Impact
+          Reports, investor calls, and third-party retail analytics (Statista, ScrapeHero, World
+          Population Review) currently through mid-2026. Store counts marked
+          <span class="badge badge-estimated align-middle">Estimated</span> are approximate; Starbucks
+          does not publish official city-level store counts anywhere.
+        </p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-gold-light">Source code</p>
+        <p class="mt-2 text-sm leading-relaxed text-cream/70">
+          Built with Astro + Tailwind CSS, globe.gl and Chart.js. Hosted as a static site on GitHub
+          Pages — view the source and data files in the project's GitHub repository.
+        </p>
+      </div>
+    </div>
+    <div class="mt-10 border-t border-white/10 pt-6 text-xs text-cream/50">
+      © {year} Starbucks Data Hub — independent research project. "Starbucks" is a trademark of Starbucks
+      Corporation; used here descriptively for commentary and research purposes only.
+    </div>
+  </div>
+</footer>

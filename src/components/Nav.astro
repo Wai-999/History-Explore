@@ -1,0 +1,90 @@
+---
+import Logo from "./Logo.astro";
+
+interface Props {
+  active?: string;
+}
+const { active = "" } = Astro.props;
+
+const links = [
+  { id: "home", href: "/", label: "Home" },
+  { id: "history", href: "/history/", label: "History" },
+  { id: "challenges", href: "/challenges/", label: "Challenges" },
+  { id: "culture", href: "/culture/", label: "Culture" },
+  { id: "global", href: "/global-presence/", label: "Global Map" },
+  { id: "coffee", href: "/coffee-sourcing/", label: "Coffee & Sourcing" },
+  { id: "supply", href: "/supply-chain/", label: "Supply Chain" },
+  { id: "sales", href: "/sales-performance/", label: "Sales" },
+  { id: "menu", href: "/menu/", label: "Menu Explorer" },
+];
+
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => {
+  if (href === "/") return base;
+  return (base.endsWith("/") ? base.slice(0, -1) : base) + href;
+};
+---
+
+<header class="sticky top-0 z-50 border-b border-green-900/10 bg-cream/90 backdrop-blur">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between gap-4">
+      <a href={withBase("/")} class="flex items-center gap-2 text-green-800 shrink-0">
+        <Logo class="w-8 h-8" />
+        <span class="font-display text-lg font-semibold tracking-tight text-espresso">Starbucks Data Hub</span>
+      </a>
+
+      <button id="nav-toggle" class="lg:hidden rounded-md border border-green-900/20 px-3 py-1.5 text-sm font-medium text-green-800" aria-expanded="false" aria-controls="nav-links">
+        Menu
+      </button>
+
+      <nav id="nav-links" class="hidden lg:flex flex-wrap items-center gap-x-1 gap-y-2 text-sm font-medium">
+        {links.map((l) => (
+          <a
+            href={withBase(l.href)}
+            class:list={[
+              "rounded-full px-3 py-1.5 transition-colors",
+              active === l.id
+                ? "bg-green-700 text-white"
+                : "text-espresso-soft hover:bg-green-100 hover:text-green-800",
+            ]}
+          >
+            {l.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <nav id="nav-links-mobile" class="hidden lg:hidden flex-col gap-1 pb-4 text-sm font-medium">
+      {links.map((l) => (
+        <a
+          href={withBase(l.href)}
+          class:list={[
+            "rounded-lg px-3 py-2 transition-colors",
+            active === l.id
+              ? "bg-green-700 text-white"
+              : "text-espresso-soft hover:bg-green-100 hover:text-green-800",
+          ]}
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const mobileMenu = document.getElementById("nav-links-mobile");
+  toggle?.addEventListener("click", () => {
+    const isHidden = mobileMenu?.classList.contains("hidden");
+    if (isHidden) {
+      mobileMenu?.classList.remove("hidden");
+      mobileMenu?.classList.add("flex");
+      toggle.setAttribute("aria-expanded", "true");
+    } else {
+      mobileMenu?.classList.add("hidden");
+      mobileMenu?.classList.remove("flex");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>

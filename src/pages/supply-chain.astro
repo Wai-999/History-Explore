@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StatCard from "../components/StatCard.astro";
+import supplyChain from "../data/supplyChain.json";
+---
+<Layout title="Supply Chain & Workforce" active="supply">
+  <Hero
+    kicker="Section 06"
+    title="From Farmer Support Center to store counter"
+    description="Ten Farmer Support Centers, six roasting plants with over a billion pounds of annual capacity, and 381,000 partners keeping the whole chain moving."
+  />
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="A" title="Farmer Support Centers" description={supplyChain.farmerSupportCenters.purpose} />
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
+      <StatCard value={String(supplyChain.farmerSupportCenters.count)} label="Farmer Support Centers worldwide" />
+      <StatCard value={String(supplyChain.farmerSupportCenters.firstOpened.year)} label="First center opened" note={supplyChain.farmerSupportCenters.firstOpened.location} />
+      <StatCard value={String(supplyChain.farmerSupportCenters.firstInAsia.year)} label="First center in Asia" note={supplyChain.farmerSupportCenters.firstInAsia.location} />
+      <StatCard value={String(supplyChain.workforce.totalPartnersWorldwide.toLocaleString())} label="Partners worldwide" note={supplyChain.workforce.asOf} />
+    </div>
+    <div class="card p-6">
+      <p class="text-sm font-semibold uppercase tracking-wide text-green-700">Known locations</p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        {supplyChain.farmerSupportCenters.locations.map((l) => (
+          <span class="rounded-full bg-green-100 px-3 py-1.5 text-sm font-medium text-green-800">{l}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="B" title="Six roasting plants, one global network" description={`Combined capacity: ${supplyChain.combinedRoastingCapacity}.`} />
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {supplyChain.roastingPlants.map((p) => (
+          <div class="card p-5">
+            <p class="font-display text-lg font-semibold text-green-800">{p.location}</p>
+            <p class="mt-1 text-sm text-espresso-soft">Serves: {p.serves}</p>
+            <p class="mt-1 text-xs text-espresso-soft/70">Opened {p.opened}</p>
+            {p.notes && <p class="mt-2 text-xs leading-relaxed text-espresso-soft">{p.notes}</p>}
+          </div>
+        ))}
+      </div>
+      <div class="card mt-6 p-6">
+        <p class="text-sm leading-relaxed text-espresso-soft">{supplyChain.distribution}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="C" title='Workforce: 381,000 "partners"' description={supplyChain.workforce.termUsed} />
+    <div class="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+      <div class="card p-6">
+        <div class="h-64"><canvas id="workforce-chart"></canvas></div>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-lg font-semibold text-espresso">Benefits at a glance</h3>
+        <ul class="mt-3 space-y-3 text-sm text-espresso-soft">
+          <li><span class="font-semibold text-espresso">Eligibility: </span>{supplyChain.benefits.eligibility}.</li>
+          <li><span class="font-semibold text-espresso">Healthcare: </span>{supplyChain.benefits.healthcare}.</li>
+          <li><span class="font-semibold text-espresso">Equity: </span>{supplyChain.benefits.equity}.</li>
+          <li><span class="font-semibold text-espresso">Education: </span>{supplyChain.benefits.education}</li>
+          <li><span class="font-semibold text-espresso">Total comp: </span>{supplyChain.benefits.averageTotalCompensation}.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script src="../scripts/supply-charts.ts"></script>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="D" title="Labor relations" />
+      <div class="card p-6">
+        <p class="text-sm leading-relaxed text-espresso-soft"><span class="font-semibold text-espresso">Union founded: </span>{supplyChain.laborRelations.unionFounded}</p>
+        <p class="mt-3 text-sm leading-relaxed text-espresso-soft"><span class="font-semibold text-espresso">2025–26 strike: </span>{supplyChain.laborRelations.strike2025}</p>
+        <p class="mt-3 text-sm leading-relaxed text-espresso-soft"><span class="font-semibold text-espresso">Key disputes: </span>{supplyChain.laborRelations.keyDisputes}</p>
+        <p class="mt-3 rounded-lg bg-berry/10 p-3 text-sm text-berry"><span class="font-semibold">Status: </span>{supplyChain.laborRelations.status}</p>
+      </div>
+    </div>
+  </section>
+</Layout>

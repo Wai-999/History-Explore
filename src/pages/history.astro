@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import timeline from "../data/history.json";
+
+const tagColor: Record<string, string> = {
+  founding: "bg-green-700",
+  leadership: "bg-espresso-soft",
+  culture: "bg-gold",
+  growth: "bg-green-600",
+  product: "bg-green-500",
+  international: "bg-berry",
+  sourcing: "bg-green-700",
+  crisis: "bg-berry",
+  labor: "bg-berry",
+  turnaround: "bg-gold",
+};
+
+const successFactors = [
+  { title: "The \"Third Place\"", desc: "Reframed a commodity (coffee) as a premium, sit-and-stay experience — worth a markup home brewing could never justify." },
+  { title: "Constant product reinvention", desc: "Frappuccino (1995), Pike Place Roast, VIA Instant, Cold Brew/Nitro, and plant-based milk options each opened new dayparts and new customers rather than resting on the espresso menu." },
+  { title: "Capital-light licensing at the edges", desc: "Company-operated stores anchor flagship markets; licensed partners (Alsea in Mexico/LatAm, Alshaya across the Middle East, Tata in India) fund expansion into harder markets without Starbucks carrying all the capital risk." },
+  { title: "Loyalty & digital, done early", desc: "Starbucks Rewards now drives roughly 60% of U.S. company-operated revenue from 35.6M active members, and mobile order accounts for 31% of transactions — a data and habit-forming engine competitors are still chasing." },
+  { title: "Ethical sourcing as trust, not just PR", desc: "C.A.F.E. Practices verifies 99% of coffee purchases against 200+ social/environmental indicators — insulating supply from reputational and climate risk while giving the brand a defensible sustainability story." },
+  { title: "People-first culture", desc: "Healthcare and equity (Bean Stock) for partners working just 20 hours a week, plus 100%-tuition coverage via Arizona State University, built an employer brand that — when it's working — shows up directly in service quality." },
+];
+---
+<Layout title="History & Milestones" active="history">
+  <Hero
+    kicker="Section 01 — Our Story"
+    title="From a Pike Place bean shop to a 40,990-store global brand"
+    description="Founded in 1971, transformed by Howard Schultz's 1983 trip to Milan, nearly undone by its own growth in 2008, and rebuilding again today. Here's the full timeline."
+  />
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading num="A" title="Timeline" description="Founding through mid-2026, tagged by theme." />
+
+    <div class="mb-8 flex flex-wrap gap-2 text-xs">
+      {Object.entries(tagColor).map(([tag, color]) => (
+        <span class="flex items-center gap-1.5 rounded-full border border-green-900/10 bg-white px-2.5 py-1">
+          <span class={`h-2 w-2 rounded-full ${color}`}></span>
+          <span class="capitalize text-espresso-soft">{tag}</span>
+        </span>
+      ))}
+    </div>
+
+    <ol class="relative border-l-2 border-green-700/20 pl-8">
+      {timeline.map((event) => (
+        <li class="mb-10 last:mb-0">
+          <span class={`absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full ring-4 ring-cream ${tagColor[event.tag] ?? "bg-green-600"}`}></span>
+          <p class="font-display text-xl font-semibold text-green-800">{event.year}</p>
+          <h3 class="mt-1 text-lg font-semibold text-espresso">{event.title}</h3>
+          <p class="mt-1.5 text-espresso-soft leading-relaxed">{event.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="B" title="What actually made it successful" description="Six durable advantages behind the growth, distinct from any single product or campaign." />
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {successFactors.map((f) => (
+          <div class="card p-6">
+            <h3 class="font-display text-lg font-semibold text-green-800">{f.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="card p-8">
+      <p class="text-sm font-semibold uppercase tracking-wide text-green-700">Keep reading</p>
+      <p class="mt-2 text-espresso-soft">
+        The turnaround story continues in <a href="/challenges/" class="font-semibold text-green-800 underline underline-offset-2">Challenges & Solutions</a>,
+        and the philosophy behind the brand is unpacked in <a href="/culture/" class="font-semibold text-green-800 underline underline-offset-2">Culture & Values</a>.
+      </p>
+    </div>
+  </section>
+</Layout>

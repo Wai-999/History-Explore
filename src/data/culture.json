@@ -1,0 +1,28 @@
+{
+  "mission": "To be the premier purveyor of the finest coffee in the world, inspiring and nurturing the human spirit — one person, one cup and one neighborhood at a time.",
+  "missionUpdated": "January 28, 2025, by CEO Brian Niccol",
+  "thirdPlace": {
+    "origin": "Coined by sociologist Ray Oldenburg; adopted by Howard Schultz after his 1983 Milan trip.",
+    "idea": "A 'third place' is neither home (first place) nor work (second place) — a welcoming, semi-public space in between. It's the philosophical core of why Starbucks invests in physical stores rather than treating coffee as a pure commodity transaction."
+  },
+  "coreValues": [
+    { "name": "Craft", "description": "Care in how coffee and drinks are made." },
+    { "name": "Results", "description": "Delivering performance responsibly." },
+    { "name": "Courage", "description": "Challenging the status quo." },
+    { "name": "Belonging", "description": "Everyone is welcome — partners and customers alike." },
+    { "name": "Joy", "description": "Finding moments of connection and fun in the everyday." }
+  ],
+  "coreValuesIntroduced": "2023, developed collaboratively with hundreds of partners worldwide",
+  "stakeholderPromises": ["Partners", "Customers", "Farmers", "Communities", "Environment", "Shareholders"],
+  "partnerLanguage": "Every employee — full or part-time, barista to executive — is called a 'partner,' a term that dates to 1991 when Starbucks became one of the first U.S. companies to grant stock options (Bean Stock) to part-time hourly workers.",
+  "sustainability": {
+    "vision": "Resource positive: storing more carbon than it emits, eliminating waste, and providing more clean freshwater than it uses.",
+    "goals2030": "Cut carbon, water and waste footprints by 50% each, against a 2019 baseline.",
+    "greenerStores": "Over 3,500 stores had earned 'Greener Store' certification (100% renewable energy, 30% less water) as of 2022, working toward an original goal of 10,000 by 2025.",
+    "challenge": "Carbon emissions rose about 14% between 2019 and 2023, putting the 2030 target at risk."
+  },
+  "diversityAndCommunity": {
+    "communityStores": "A store format, expanded from 2024 onward, that reinvests a share of profits into local nonprofits and hires from the surrounding neighborhood — part of what Niccol and Schultz have called 'reclaiming third places.'",
+    "note": "Starbucks has run supplier-diversity, veteran-hiring (partnering with the military community), and refugee-hiring commitments across various points in its history; specifics have evolved with leadership changes."
+  }
+}

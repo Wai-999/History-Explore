@@ -1,0 +1,63 @@
+{
+  "fiscalYear": "FY2025 (ended September 28, 2025)",
+  "totalNetRevenue": 37184.4,
+  "totalNetRevenuePriorYear": 36200,
+  "revenueGrowth": "+3%",
+  "revenueBySegmentMillions": [
+    { "segment": "North America", "revenue": 27373.1 },
+    { "segment": "International", "revenue": 7819.9 },
+    { "segment": "Channel Development", "revenue": 1871.7 },
+    { "segment": "Corporate & Other", "revenue": 119.7 }
+  ],
+  "revenueByProductConsolidated": [
+    { "category": "Beverages", "share": 60.62 },
+    { "category": "Other Products (packaged/RTD/merchandise)", "share": 20.42 },
+    { "category": "Food", "share": 18.96 }
+  ],
+  "companyOperatedRetailMix": [
+    { "category": "Beverages", "share": 73 },
+    { "category": "Food", "share": 23 },
+    { "category": "Other", "share": 4 }
+  ],
+  "comparableStoreSalesTimeline": [
+    { "quarter": "Q1 FY2025", "global": -4, "northAmerica": -4, "international": -4, "china": -6 },
+    { "quarter": "Q2 FY2025", "global": -1, "northAmerica": -1, "international": 2, "china": 0 },
+    { "quarter": "Q3 FY2025", "global": -1, "northAmerica": -2, "international": 0, "china": 2 },
+    { "quarter": "Q4 FY2025", "global": 1, "northAmerica": 0, "international": 3, "china": 2 },
+    { "quarter": "Q1 FY2026", "global": 4, "northAmerica": 4, "international": 5, "china": 7 },
+    { "quarter": "Q2 FY2026", "global": 6.2, "northAmerica": 7.1, "international": 2.6, "china": 0.5 }
+  ],
+  "comparableStoreSalesNote": "Q4 FY2025 marked Starbucks' first positive global comparable-store sales after eight consecutive quarters of decline — the clearest early signal that Brian Niccol's 'Back to Starbucks' turnaround was gaining traction. Growth accelerated further through Q2 FY2026.",
+  "loyaltyProgram": {
+    "activeUSMembers": 35.6,
+    "activeUSMembersAsOf": "Q2 FY2026",
+    "priorYearMembers": 34.6,
+    "revenueShare": "~60% of U.S. company-operated revenue",
+    "annualMemberSpend": "$13B+",
+    "mobileOrderShareOfTransactions": 31
+  },
+  "topStoreCountMarkets": [
+    { "country": "United States", "stores": 16864 },
+    { "country": "China", "stores": 8011 },
+    { "country": "Japan", "stores": 2077 },
+    { "country": "South Korea", "stores": 2077 },
+    { "country": "Canada", "stores": 1447 },
+    { "country": "United Kingdom", "stores": 1424 },
+    { "country": "Mexico", "stores": 924 },
+    { "country": "Türkiye", "stores": 722 },
+    { "country": "Indonesia", "stores": 603 },
+    { "country": "Taiwan", "stores": 571 }
+  ],
+  "restructuring": {
+    "planName": "Back to Starbucks / $1B restructuring",
+    "fy2025Charges": "$892.0 million in restructuring & impairment costs",
+    "fy2025StoreClosures": 627,
+    "fy2026ExpectedCharges": "~$230 million (mostly accelerated lease-asset amortization & exit costs)",
+    "fy2026StoreGuidance": "~600+ net new stores planned, alongside remodels of roughly 1,000 U.S. locations by end of 2026"
+  },
+  "marketCap": {
+    "value": "~$117 billion",
+    "asOf": "July 2026",
+    "ticker": "SBUX (Nasdaq)"
+  }
+}

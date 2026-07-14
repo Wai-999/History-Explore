@@ -1,0 +1,46 @@
+{
+  "farmerSupportCenters": {
+    "count": 10,
+    "firstOpened": { "location": "San José, Costa Rica", "year": 2004 },
+    "firstInAsia": { "location": "Yunnan (Pu'er), China", "year": 2012 },
+    "purpose": "Agronomists based at each center distribute improved, disease-resistant seedlings, run soil analysis, and coach farmers on C.A.F.E. Practices compliance — for free, regardless of whether the farm sells to Starbucks.",
+    "locations": ["Costa Rica", "Guatemala", "Colombia", "Rwanda", "Tanzania", "Ethiopia", "China (Yunnan)", "Indonesia", "Mexico", "Central America regional hub"]
+  },
+  "roastingPlants": [
+    { "location": "Kent, Washington, USA", "serves": "U.S. West Coast", "opened": 1993 },
+    { "location": "York, Pennsylvania, USA", "serves": "U.S. East Coast & Atlantic markets", "opened": 1974 },
+    { "location": "Augusta, Georgia, USA", "serves": "U.S. Southeast", "opened": 2009 },
+    { "location": "Amsterdam, Netherlands", "serves": "Europe, Middle East & Africa", "opened": 2002 },
+    { "location": "Basildon, United Kingdom", "serves": "Europe, Middle East & Africa", "opened": 2016 },
+    { "location": "Shanghai, China (Coffee Innovation Park)", "serves": "China & Asia-Pacific", "opened": 2022, "notes": "A $220M, 700,000 sq ft integrated roasting & distribution center that cut lead times for roasted coffee reaching Chinese stores from 4–6 weeks (previously imported) to 3–5 days." }
+  ],
+  "combinedRoastingCapacity": "Over 1 billion lbs of coffee per year across all plants combined",
+  "distribution": "Roasted coffee moves from these six plants through a regional distribution-center network to company-operated and licensed stores; packaged/retail products (bagged coffee, K-Cups, RTD bottles) are produced and distributed through Starbucks' consumer packaged goods partnership with Nestlé (global marketing/distribution rights acquired 2018 for $7.15B) and, in North America, a ready-to-drink bottling partnership with PepsiCo dating to 1994.",
+  "workforce": {
+    "totalPartnersWorldwide": 381000,
+    "asOf": "FY2025 (Sep 28, 2025)",
+    "yoyChange": "+5.5%",
+    "breakdown": [
+      { "segment": "U.S. company-operated stores", "count": 214000 },
+      { "segment": "U.S. corporate support, roasting, manufacturing, warehousing & distribution", "count": 9000 },
+      { "segment": "Non-U.S. company-operated stores", "count": 153000 },
+      { "segment": "Non-U.S. regional support operations", "count": 5000 }
+    ],
+    "termUsed": "\"Partners\" — Starbucks' term for every employee, coined when the company introduced equity (Bean Stock) for all workers, including part-time baristas, in 1991."
+  },
+  "benefits": {
+    "eligibility": "Most benefits are available to partners working as few as 20 hours/week",
+    "healthcare": "Medical, dental & vision coverage for partners averaging 20+ hours/week",
+    "equity": "Bean Stock — annual grant of Restricted Stock Units (RSUs) to eligible partners",
+    "education": "Starbucks College Achievement Plan with Arizona State University — 100% tuition coverage for an online bachelor's degree; 35,000+ partners had graduated debt-free by early 2026. From 2026, the plan moves to 100% upfront tuition and extends eligibility to partners' military family members.",
+    "averageTotalCompensation": "~$30/hour in total pay and benefits value for U.S. hourly partners",
+    "fy2025Investment": "$500 million allocated to additional store labor hours in the U.S., aimed at cutting partner turnover and rebuilding customer connection",
+    "parentalLeave": "Doubled under the 2025 'Back to Starbucks' plan"
+  },
+  "laborRelations": {
+    "unionFounded": "Buffalo, NY — December 2021 (Starbucks Workers United)",
+    "strike2025": "92% of unionized workers authorized an open-ended strike in early November 2025; a nationwide unfair-labor-practice strike began November 13, 2025 (Red Cup Day) and grew to roughly 2,000+ workers across 65 U.S. cities, lasting 131 days before bargaining resumed in April 2026.",
+    "keyDisputes": "Wage floor (union proposals ranged from $17–$20/hour starting pay plus ~4% annual raises), minimum staffing levels, and 600+ unresolved unfair-labor-practice charges filed against the company for alleged 'regressive bargaining.'",
+    "status": "Contract negotiations remain ongoing as of mid-2026; no first contract has yet been ratified."
+  }
+}
