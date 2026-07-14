@@ -43,14 +43,14 @@ site: 'https://Wai-999.github.io',
 base: '/History-Explore',
 ```
 
-To go live:
+The local repo is already committed, on branch `main`, with `origin` already pointing at `https://github.com/Wai-999/History-Explore.git`. To go live:
 
-1. **Push this project to the repo** (already created at github.com/Wai-999/History-Explore):
+1. **Push it** (from a terminal authenticated to your own GitHub account — Claude can't authenticate as you):
    ```bash
-   git remote add origin https://github.com/Wai-999/History-Explore.git
-   git branch -M main
+   cd starbucks-data-hub
    git push -u origin main
    ```
+   If it asks for credentials and you haven't set up a credential helper, either use [GitHub Desktop](https://desktop.github.com) to add/push this existing repo, or authenticate the CLI with `gh auth login` first (requires the [GitHub CLI](https://cli.github.com)).
 2. **Enable Pages.** In the repo on GitHub: **Settings → Pages → Build and deployment → Source → GitHub Actions.**
 3. **Done.** The workflow in `.github/workflows/deploy.yml` runs automatically, builds the site, and deploys it. The site will be live at `https://Wai-999.github.io/History-Explore/` a minute or two after the workflow finishes (check the **Actions** tab for progress).
 
