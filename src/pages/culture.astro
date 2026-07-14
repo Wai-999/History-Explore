@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import culture from "../data/culture.json";
 import supplyChain from "../data/supplyChain.json";
+import careers from "../data/careers.json";
 ---
 <Layout title="Culture & Values" active="culture">
   <Hero
@@ -77,9 +78,104 @@ import supplyChain from "../data/supplyChain.json";
     </div>
   </section>
 
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <SectionHeading
+      num="D"
+      title="From green apron to district leader: the barista career ladder"
+      description={careers.intro}
+    />
+
+    <div class="card reveal mb-8 flex flex-wrap items-center gap-4 p-6">
+      <p class="font-display text-4xl font-semibold text-green-800" data-count-to={60} data-count-suffix="%+">0%+</p>
+      <p class="max-w-md text-sm text-espresso-soft">of Starbucks' coffeehouse leaders started their careers with the company as baristas — per Starbucks' own careers site.</p>
+    </div>
+
+    <div class="space-y-0">
+      {careers.ladder.map((role, i) => (
+        <div>
+          <div class="card reveal p-6">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div class="flex items-start gap-4">
+                <span class="chip h-11 w-11 shrink-0 text-base">{role.level}</span>
+                <div>
+                  <h3 class="font-display text-xl font-semibold text-espresso">{role.title}</h3>
+                  <p class="mt-1 max-w-xl text-sm text-espresso-soft">{role.summary}</p>
+                </div>
+              </div>
+              <div class="shrink-0 text-right">
+                <p class="font-display text-lg font-semibold text-green-800">{role.pay.range}</p>
+                <span class={`badge ${role.pay.confidence === "reported" ? "badge-reported" : "badge-estimated"}`}>{role.pay.confidence}</span>
+              </div>
+            </div>
+
+            <p class="mt-3 text-xs leading-relaxed text-espresso-soft/80">{role.pay.note}</p>
+
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              {role.responsibilities.map((r) => (
+                <span class="rounded-full bg-cream-deep px-2.5 py-1 text-xs font-medium text-espresso ring-1 ring-green-900/10">{r}</span>
+              ))}
+            </div>
+
+            <p class="mt-4 text-sm text-espresso-soft"><span class="font-semibold text-espresso">Requirements: </span>{role.requirements}</p>
+
+            <div class="mt-3 rounded-lg bg-green-100/60 p-3">
+              <p class="text-xs text-espresso-soft"><span class="font-semibold text-green-800">Path to next level: </span>{role.pathToNext}</p>
+            </div>
+          </div>
+          {i < careers.ladder.length - 1 && (
+            <div class="flex justify-center py-1">
+              <svg width="20" height="28" viewBox="0 0 20 28" class="text-green-700/40">
+                <line x1="10" y1="0" x2="10" y2="20" stroke="currentColor" stroke-width="2"></line>
+                <path d="M4 16 L10 24 L16 16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2">
+      <div class="card reveal p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-green-700">{careers.howToApply.external.label}</p>
+        <h3 class="mt-1 font-display text-lg font-semibold text-espresso">Applying from outside Starbucks</h3>
+        <ol class="mt-3 space-y-2.5 text-sm text-espresso-soft">
+          {careers.howToApply.external.steps.map((s, i) => (
+            <li class="flex gap-2.5">
+              <span class="chip h-5 w-5 shrink-0 text-[11px]">{i + 1}</span>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ol>
+        <p class="mt-4 text-xs text-espresso-soft/70">Portal: <span class="font-semibold text-green-800">{careers.howToApply.external.portal}</span></p>
+      </div>
+
+      <div class="card reveal reveal-delay-1 p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-green-700">{careers.howToApply.internal.label}</p>
+        <h3 class="mt-1 font-display text-lg font-semibold text-espresso">Promoting from within</h3>
+        <p class="mt-3 text-sm leading-relaxed text-espresso-soft">{careers.howToApply.internal.description}</p>
+        <p class="mt-4 text-xs text-espresso-soft/70">Portal: <span class="font-semibold text-green-800">{careers.howToApply.internal.portal}</span></p>
+      </div>
+    </div>
+
+    <div class="mt-5 card reveal p-6">
+      <h3 class="font-display text-lg font-semibold text-espresso">Application & interview tips</h3>
+      <div class="mt-3 grid gap-2 sm:grid-cols-2">
+        {careers.howToApply.tips.map((t) => (
+          <p class="flex gap-2 text-sm text-espresso-soft">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-700"></span>
+            <span>{t}</span>
+          </p>
+        ))}
+      </div>
+      <p class="mt-4 border-t border-green-900/10 pt-4 text-sm text-espresso-soft">
+        <span class="font-semibold text-espresso">Training: </span>{careers.howToApply.trainingMilestones}
+      </p>
+    </div>
+  </section>
+
   <section class="border-t border-green-900/10 bg-green-100/50">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <SectionHeading num="D" title="Sustainability: ambitious goals, mixed progress" />
+      <SectionHeading num="E" title="Sustainability: ambitious goals, mixed progress" />
       <div class="card p-6">
         <p class="text-sm leading-relaxed text-espresso-soft"><span class="font-semibold text-green-800">Vision: </span>{culture.sustainability.vision}</p>
         <p class="mt-3 text-sm leading-relaxed text-espresso-soft"><span class="font-semibold text-green-800">2030 goals: </span>{culture.sustainability.goals2030}</p>
@@ -92,7 +188,7 @@ import supplyChain from "../data/supplyChain.json";
   </section>
 
   <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-    <SectionHeading num="E" title="Community & diversity" />
+    <SectionHeading num="F" title="Community & diversity" />
     <div class="card p-6">
       <h3 class="font-display text-lg font-semibold text-espresso">Community Stores</h3>
       <p class="mt-2 text-sm leading-relaxed text-espresso-soft">{culture.diversityAndCommunity.communityStores}</p>
