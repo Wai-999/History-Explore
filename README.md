@@ -37,22 +37,24 @@ npm run preview   # preview the production build locally
 
 ## Deploying to GitHub Pages
 
-This repo already includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that builds and deploys automatically on every push to `main`. To go live:
+This repo already includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that builds and deploys automatically on every push to `main`, and `astro.config.mjs` is already configured for **https://github.com/Wai-999/History-Explore**:
+```js
+site: 'https://Wai-999.github.io',
+base: '/History-Explore',
+```
 
-1. **Create a GitHub repository** and push this project to it:
+To go live:
+
+1. **Push this project to the repo** (already created at github.com/Wai-999/History-Explore):
    ```bash
-   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   git remote add origin https://github.com/Wai-999/History-Explore.git
    git branch -M main
    git push -u origin main
    ```
-2. **Set the base path.** Open `astro.config.mjs` and update:
-   ```js
-   site: 'https://<your-username>.github.io',
-   base: '/<your-repo-name>',
-   ```
-   (If you're deploying to a *user/organization* page named exactly `<your-username>.github.io`, set `base: '/'` instead.)
-3. **Enable Pages.** In your repo on GitHub: **Settings → Pages → Build and deployment → Source → GitHub Actions.**
-4. **Push.** The workflow in `.github/workflows/deploy.yml` runs automatically, builds the site, and deploys it. Your site will be live at `https://<your-username>.github.io/<your-repo-name>/` a minute or two after the workflow finishes (check the **Actions** tab for progress).
+2. **Enable Pages.** In the repo on GitHub: **Settings → Pages → Build and deployment → Source → GitHub Actions.**
+3. **Done.** The workflow in `.github/workflows/deploy.yml` runs automatically, builds the site, and deploys it. The site will be live at `https://Wai-999.github.io/History-Explore/` a minute or two after the workflow finishes (check the **Actions** tab for progress).
+
+If you ever rename the repo or move it under a different account, update the two lines above in `astro.config.mjs` to match.
 
 Any future push to `main` re-deploys automatically — no manual steps needed after the first setup.
 
