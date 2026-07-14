@@ -3,49 +3,96 @@
     {
       "name": "Espresso",
       "description": "Built on Starbucks Espresso Roast or the milder Blonde Espresso.",
-      "examples": ["Caffè Americano", "Caffè Latte", "Cappuccino", "Flat White", "Caramel Macchiato", "Mocha", "Cortado"]
+      "examples": ["Caffè Americano", "Caffè Latte", "Cappuccino", "Flat White", "Caramel Macchiato", "Mocha", "Cortado"],
+      "temp": "hot-iced",
+      "caffeine": "high",
+      "menuType": "core"
     },
     {
       "name": "Brewed Coffee",
       "description": "Drip-brewed, filter coffee — including cold formats.",
-      "examples": ["Pike Place Roast", "Blonde Roast", "Dark Roast", "Cold Brew", "Nitro Cold Brew"]
+      "examples": ["Pike Place Roast", "Blonde Roast", "Dark Roast", "Cold Brew", "Nitro Cold Brew"],
+      "temp": "hot-iced",
+      "caffeine": "high",
+      "menuType": "core"
     },
     {
       "name": "Frappuccino® Blended Beverages",
       "description": "Blended ice drinks in coffee and crème (non-coffee) bases.",
-      "examples": ["Mocha Frappuccino", "Caramel Frappuccino", "Java Chip Frappuccino", "Strawberry Crème Frappuccino"]
+      "examples": ["Mocha Frappuccino", "Caramel Frappuccino", "Java Chip Frappuccino", "Strawberry Crème Frappuccino"],
+      "temp": "blended",
+      "caffeine": "medium",
+      "menuType": "core"
     },
     {
       "name": "Refreshers",
       "description": "Fruit-forward, gently caffeinated drinks made with green coffee extract instead of espresso.",
-      "examples": ["Pink Drink", "Mango Dragonfruit Refresher", "Strawberry Açaí Refresher"]
+      "examples": ["Pink Drink", "Mango Dragonfruit Refresher", "Strawberry Açaí Refresher"],
+      "temp": "iced",
+      "caffeine": "low",
+      "menuType": "core"
     },
     {
       "name": "Tea & Teavana",
       "description": "Hot and iced tea, matcha, and steamed-milk tea drinks.",
-      "examples": ["Chai Latte", "Matcha Latte", "Iced Black Tea", "Honey Citrus Mint Tea"]
+      "examples": ["Chai Latte", "Matcha Latte", "Iced Black Tea", "Honey Citrus Mint Tea"],
+      "temp": "hot-iced",
+      "caffeine": "low",
+      "menuType": "core"
     },
     {
       "name": "Iced & Shaken Espresso",
       "description": "Espresso shaken over ice, often with flavored syrups.",
-      "examples": ["Iced Shaken Espresso", "Iced Brown Sugar Oatmilk Shaken Espresso"]
+      "examples": ["Iced Shaken Espresso", "Iced Brown Sugar Oatmilk Shaken Espresso"],
+      "temp": "iced",
+      "caffeine": "high",
+      "menuType": "core"
     },
     {
       "name": "Seasonal & Limited-Time",
       "description": "Rotating drinks tied to a season or cultural moment.",
-      "examples": ["Pumpkin Spice Latte", "Peppermint Mocha", "Summer-Berry Refreshers"]
+      "examples": ["Pumpkin Spice Latte", "Peppermint Mocha", "Summer-Berry Refreshers"],
+      "temp": "hot-iced",
+      "caffeine": "medium",
+      "menuType": "seasonal"
     },
     {
       "name": "Bottled / Ready-to-Drink",
       "description": "Packaged for grocery and convenience channels via the PepsiCo (North America RTD) and Nestlé (global CPG) partnerships.",
-      "examples": ["Bottled Frappuccino", "Doubleshot Espresso", "Bottled Cold Brew"]
+      "examples": ["Bottled Frappuccino", "Doubleshot Espresso", "Bottled Cold Brew"],
+      "temp": "iced",
+      "caffeine": "medium",
+      "menuType": "rtd"
     },
     {
       "name": "Reserve® / Roastery Exclusives",
       "description": "Small-lot, single-origin coffees and specialty preparations available at Reserve bars and Roasteries.",
-      "examples": ["Reserve pour-overs", "Nitro Reserve", "Affogato-style drinks"]
+      "examples": ["Reserve pour-overs", "Nitro Reserve", "Affogato-style drinks"],
+      "temp": "hot-iced",
+      "caffeine": "high",
+      "menuType": "core"
     }
   ],
+  "sizes": [
+    { "name": "Short", "oz": 8, "formats": "Hot only", "note": "The original size — not printed on the menu board, but any barista will pour it." },
+    { "name": "Tall", "oz": 12, "formats": "Hot & iced", "note": "The smallest size available for cold drinks." },
+    { "name": "Grande", "oz": 16, "formats": "Hot & iced", "note": "The most-ordered size system-wide." },
+    { "name": "Venti", "oz": 20, "formats": "Hot (20oz) / Iced (24oz)", "note": "Iced Venti holds more liquid to leave room for ice." },
+    { "name": "Trenta", "oz": 30, "formats": "Iced only, select drinks", "note": "Not offered on drinks made with dairy." }
+  ],
+  "customization": {
+    "stat": "170,000+",
+    "statLabel": "possible drink combinations by Starbucks' own estimate — the product of size, milk, syrup pumps, temperature, and extras multiplying against each other",
+    "milkOptions": ["Whole milk", "2% milk", "Nonfat milk", "Oat milk", "Almond milk", "Coconut milk", "Soy milk", "Heavy cream"],
+    "sweeteners": ["Classic syrup", "Raw sugar", "Honey blend", "Sugar-free vanilla syrup", "Stevia", "Splenda"],
+    "syrupPumpsBySize": [
+      { "size": "Short / Tall", "pumps": "1–3 pumps" },
+      { "size": "Grande", "pumps": "2–4 pumps" },
+      { "size": "Venti", "pumps": "3–5 pumps" },
+      { "size": "Trenta", "pumps": "4–6 pumps" }
+    ],
+    "popularModifiers": ["Extra espresso shot", "Decaf", "Half-caf", "Light ice / no ice", "Extra hot", "No foam / extra foam", "Extra drizzle", "Upside-down (Frappuccino)"]
+  },
   "buildHierarchy": {
     "description": "How a Starbucks drink is assembled, from raw foundation to the cup handed to the customer. Baristas are actually trained to build the cup in call-out order: temperature, size, syrup, milk/modifications, drink name, extras — but the physical construction of the drink itself follows the layers below.",
     "steps": [

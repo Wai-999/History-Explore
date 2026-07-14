@@ -26,19 +26,19 @@ const sections = [
 <Layout title="Home" active="home">
   <section class="relative overflow-hidden bg-gradient-to-b from-green-900 via-green-800 to-green-700 text-cream">
     <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div class="flex items-center gap-3 text-gold-light">
+      <div class="hero-fade-in flex items-center gap-3 text-gold-light">
         <Logo class="h-10 w-10" />
         <span class="text-sm font-semibold uppercase tracking-[0.25em]">Independent research project</span>
       </div>
-      <h1 class="mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.1] text-white sm:text-6xl">
+      <h1 class="hero-fade-in mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.1] text-white sm:text-6xl">
         A full data hub on how Starbucks became Starbucks.
       </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-cream/85">
+      <p class="hero-fade-in-delay mt-6 max-w-2xl text-lg leading-relaxed text-cream/85">
         History, culture, an interactive map of every market down to city level, coffee sourcing,
         supply chain, sales performance, and a full menu-build hierarchy — all in one place, sourced from
         SEC filings, Starbucks' own reporting, and independent retail analytics through mid-2026.
       </p>
-      <div class="mt-8 flex flex-wrap gap-3">
+      <div class="hero-fade-in-delay mt-8 flex flex-wrap gap-3">
         <a href={withBase("/global-presence/")} class="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-green-900 shadow-sm transition hover:bg-gold-light">
           Explore the interactive map →
         </a>
@@ -51,11 +51,27 @@ const sections = [
 
   <section class="mx-auto mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-      <StatCard value={totalStores.toLocaleString()} label="Stores worldwide" note="FY2025, Sept 28 2025" />
-      <StatCard value={String(totalCountries)} label="Countries & territories" note="Company-operated + licensed" />
-      <StatCard value={totalPartners} label="Partners (employees)" note="+5.5% year over year" />
+      <StatCard value={totalStores.toLocaleString()} label="Stores worldwide" note="FY2025, Sept 28 2025" countTo={totalStores} />
+      <StatCard value={String(totalCountries)} label="Countries & territories" note="Company-operated + licensed" countTo={totalCountries} />
+      <StatCard value={totalPartners} label="Partners (employees)" note="+5.5% year over year" countTo={381000} />
       <StatCard value={revenue} label="FY2025 net revenue" note="+3% vs. FY2024" />
     </div>
+  </section>
+
+  <section class="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <a href={withBase("/history/")} class="card card-hover reveal group flex flex-col overflow-hidden p-0 sm:flex-row">
+      <img
+        src={withBase("/images/pikeplace/pikeplace-cup.jpg")}
+        alt="A drink from the original Starbucks store at Pike Place Market, Seattle"
+        class="h-48 w-full object-cover sm:h-auto sm:w-64"
+        loading="lazy"
+      />
+      <div class="flex flex-1 flex-col justify-center p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-green-700">Where it all began</p>
+        <h3 class="mt-1 font-display text-xl font-semibold text-espresso group-hover:text-green-700">A visit to the original Pike Place Market store</h3>
+        <p class="mt-2 text-sm text-espresso-soft">Photos from the very spot Starbucks opened its doors in 1971 — see the full history →</p>
+      </div>
+    </a>
   </section>
 
   <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

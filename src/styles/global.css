@@ -39,6 +39,61 @@ h1, h2, h3, h4, .font-display {
   border: 1px solid rgba(15, 79, 61, 0.1);
   border-radius: 1rem;
   box-shadow: 0 1px 2px rgba(27, 20, 16, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+a.card:hover, .card.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(10, 46, 36, 0.1);
+}
+
+/* ---- Scroll-reveal + motion (respects prefers-reduced-motion) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1.is-visible { transition-delay: 0.08s; }
+.reveal-delay-2.is-visible { transition-delay: 0.16s; }
+.reveal-delay-3.is-visible { transition-delay: 0.24s; }
+.reveal-delay-4.is-visible { transition-delay: 0.32s; }
+
+@keyframes hub-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-fade-in {
+  animation: hub-fade-up 0.7s ease both;
+}
+.hero-fade-in-delay {
+  animation: hub-fade-up 0.7s ease both;
+  animation-delay: 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .hero-fade-in, .hero-fade-in-delay {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .card, a.card, .sbx-pin {
+    transition: none !important;
+  }
+}
+
+/* Photo treatment for user-submitted Pike Place photos */
+.photo-frame {
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(10, 46, 36, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.photo-frame:hover {
+  transform: scale(1.015);
+  box-shadow: 0 12px 32px rgba(10, 46, 36, 0.24);
 }
 
 /* Confidence badges used across data pages */

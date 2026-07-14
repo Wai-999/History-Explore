@@ -3,11 +3,25 @@ interface Props {
   value: string;
   label: string;
   note?: string;
+  countTo?: number;
+  prefix?: string;
+  suffix?: string;
 }
-const { value, label, note } = Astro.props;
+const { value, label, note, countTo, prefix = "", suffix = "" } = Astro.props;
 ---
-<div class="card p-5">
-  <p class="font-display text-3xl font-semibold text-green-800 sm:text-4xl">{value}</p>
+<div class="card card-hover reveal p-5">
+  {countTo !== undefined ? (
+    <p
+      class="font-display text-3xl font-semibold text-green-800 sm:text-4xl"
+      data-count-to={countTo}
+      data-count-prefix={prefix}
+      data-count-suffix={suffix}
+    >
+      {prefix}0{suffix}
+    </p>
+  ) : (
+    <p class="font-display text-3xl font-semibold text-green-800 sm:text-4xl">{value}</p>
+  )}
   <p class="mt-1 text-sm font-medium text-espresso">{label}</p>
   {note && <p class="mt-1 text-xs text-espresso-soft/70">{note}</p>}
 </div>

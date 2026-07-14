@@ -3,21 +3,85 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import menu from "../data/menu.json";
+
+const tempLabel: Record<string, string> = {
+  hot: "Hot",
+  iced: "Iced",
+  "hot-iced": "Hot & Iced",
+  blended: "Blended",
+};
+const caffeineLabel: Record<string, string> = {
+  none: "No caffeine",
+  low: "Low caffeine",
+  medium: "Medium caffeine",
+  high: "High caffeine",
+};
+const caffeineDot: Record<string, string> = {
+  none: "bg-green-100",
+  low: "bg-green-500",
+  medium: "bg-gold",
+  high: "bg-berry",
+};
+const menuTypeLabel: Record<string, string> = {
+  seasonal: "Seasonal",
+  rtd: "Bottled / RTD",
+};
+
+const filters = [
+  { key: "all", label: "All categories" },
+  { key: "core", label: "Core menu" },
+  { key: "seasonal", label: "Seasonal" },
+  { key: "rtd", label: "Bottled & RTD" },
+];
 ---
 <Layout title="Menu Explorer" active="menu">
   <Hero
     kicker="Section 08"
     title="Every drink starts the same eight-step way"
-    description="A hierarchy map from raw bean to the cup handed across the counter — plus every menu category in between."
+    description="A hierarchy map from raw bean to the cup handed across the counter — plus sizes, customization, and every menu category in between."
   />
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-    <SectionHeading num="A" title="Menu categories" />
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {menu.categories.map((c) => (
-        <div class="card p-5">
-          <h3 class="font-display text-lg font-semibold text-green-800">{c.name}</h3>
+    <SectionHeading
+      num="A"
+      title="Menu categories"
+      description="Nine categories cover the whole board. Filter by how they fit into the menu's lifecycle — most are always on; a couple rotate in and out."
+    />
+
+    <div class="mb-6 flex flex-wrap gap-2" id="menu-filters">
+      {filters.map((f, i) => (
+        <button
+          type="button"
+          data-filter={f.key}
+          class:list={[
+            "menu-filter-btn rounded-full border px-4 py-1.5 text-sm font-semibold transition",
+            i === 0 ? "is-active border-green-700 bg-green-700 text-white" : "border-green-900/15 bg-white text-espresso-soft hover:border-green-700 hover:text-green-800",
+          ]}
+        >
+          {f.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="menu-category-grid">
+      {menu.categories.map((c, i) => (
+        <div class={`menu-category-card card card-hover reveal reveal-delay-${(i % 3) + 1} p-5`} data-menu-type={c.menuType}>
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-display text-lg font-semibold text-green-800">{c.name}</h3>
+            {menuTypeLabel[c.menuType] && (
+              <span class="badge badge-estimated shrink-0">{menuTypeLabel[c.menuType]}</span>
+            )}
+          </div>
           <p class="mt-1.5 text-sm text-espresso-soft">{c.description}</p>
+
+          <div class="mt-3 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-espresso-soft/80">
+            <span class="rounded-full bg-cream-deep px-2.5 py-1 ring-1 ring-green-900/10">{tempLabel[c.temp] ?? c.temp}</span>
+            <span class="flex items-center gap-1.5 rounded-full bg-cream-deep px-2.5 py-1 ring-1 ring-green-900/10">
+              <span class={`h-2 w-2 rounded-full ${caffeineDot[c.caffeine] ?? "bg-green-500"}`}></span>
+              {caffeineLabel[c.caffeine] ?? c.caffeine}
+            </span>
+          </div>
+
           <div class="mt-3 flex flex-wrap gap-1.5">
             {c.examples.map((e) => (
               <span class="rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-800">{e}</span>
@@ -26,52 +90,126 @@ import menu from "../data/menu.json";
         </div>
       ))}
     </div>
+    <p class="mt-3 hidden text-sm text-espresso-soft" id="menu-empty-state">No categories match that filter.</p>
   </section>
 
   <section class="border-t border-green-900/10 bg-green-100/50">
-    <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-      <SectionHeading num="B" title="Bean to cup: the build hierarchy" description={menu.buildHierarchy.description} />
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="B" title="Sizes & customization" description="The same drink name can come out 100+ different ways. Here's the reference sheet." />
 
-      <div class="space-y-0">
-        {menu.buildHierarchy.steps.map((step, i) => (
-          <div>
-            <div class="card flex gap-5 p-6">
-              <div class="flex flex-col items-center">
-                <span class="chip h-11 w-11 shrink-0 text-base">{step.level}</span>
-              </div>
-              <div class="flex-1">
-                <h3 class="font-display text-xl font-semibold text-espresso">{step.title}</h3>
-                <p class="mt-1 text-sm text-espresso-soft">{step.description}</p>
-                <div class="mt-3 flex flex-wrap gap-1.5">
-                  {step.options.map((o) => (
-                    <span class="rounded-full bg-cream-deep px-2.5 py-1 text-xs font-medium text-espresso ring-1 ring-green-900/10">{o}</span>
-                  ))}
-                </div>
+      <div class="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
+        <div class="card overflow-hidden">
+          <table class="w-full text-sm">
+            <thead class="bg-green-900 text-left text-cream">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Size</th>
+                <th class="px-4 py-3 font-semibold text-right">Ounces</th>
+                <th class="px-4 py-3 font-semibold">Available as</th>
+              </tr>
+            </thead>
+            <tbody>
+              {menu.sizes.map((s, i) => (
+                <tr class={`reveal reveal-delay-${(i % 4) + 1} border-b border-green-900/10 last:border-0 even:bg-green-50/50`}>
+                  <td class="px-4 py-2.5 font-medium">{s.name}</td>
+                  <td class="px-4 py-2.5 text-right font-display">{s.oz} oz</td>
+                  <td class="px-4 py-2.5 text-espresso-soft">
+                    {s.formats}
+                    <p class="mt-0.5 text-xs text-espresso-soft/70">{s.note}</p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card reveal p-6">
+          <p class="text-xs font-semibold uppercase tracking-wide text-green-700">By Starbucks' own estimate</p>
+          <p class="mt-1 font-display text-4xl font-semibold text-green-800" data-count-to={170000} data-count-suffix="+">0+</p>
+          <p class="mt-1 text-sm text-espresso-soft">{menu.customization.statLabel}</p>
+
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-espresso/70">Milk & alternatives</p>
+              <div class="mt-2 flex flex-wrap gap-1.5">
+                {menu.customization.milkOptions.map((m) => (
+                  <span class="rounded-full bg-cream-deep px-2.5 py-1 text-xs font-medium text-espresso ring-1 ring-green-900/10">{m}</span>
+                ))}
               </div>
             </div>
-            {i < menu.buildHierarchy.steps.length - 1 && (
-              <div class="flex justify-center py-1">
-                <svg width="20" height="28" viewBox="0 0 20 28" class="text-green-700/40">
-                  <line x1="10" y1="0" x2="10" y2="20" stroke="currentColor" stroke-width="2"></line>
-                  <path d="M4 16 L10 24 L16 16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-espresso/70">Sweeteners</p>
+              <div class="mt-2 flex flex-wrap gap-1.5">
+                {menu.customization.sweeteners.map((s) => (
+                  <span class="rounded-full bg-cream-deep px-2.5 py-1 text-xs font-medium text-espresso ring-1 ring-green-900/10">{s}</span>
+                ))}
               </div>
-            )}
+            </div>
           </div>
-        ))}
-      </div>
 
-      <div class="mt-6 rounded-xl border-2 border-dashed border-gold bg-gold-light/30 p-6 text-center">
-        <p class="text-xs font-semibold uppercase tracking-wide text-espresso/70">Example finished order</p>
-        <p class="mt-2 font-display text-xl font-semibold text-espresso">
-          {menu.buildHierarchy.steps[menu.buildHierarchy.steps.length - 1].options[0]}
-        </p>
+          <div class="mt-5">
+            <p class="text-xs font-semibold uppercase tracking-wide text-espresso/70">Syrup pumps by size</p>
+            <div class="mt-2 flex flex-wrap gap-2 text-xs">
+              {menu.customization.syrupPumpsBySize.map((p) => (
+                <span class="rounded-full bg-green-100 px-2.5 py-1 font-medium text-green-800">{p.size}: {p.pumps}</span>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold uppercase tracking-wide text-espresso/70">Popular modifiers</p>
+            <div class="mt-2 flex flex-wrap gap-1.5">
+              {menu.customization.popularModifiers.map((m) => (
+                <span class="rounded-full bg-cream-deep px-2.5 py-1 text-xs font-medium text-espresso ring-1 ring-green-900/10">{m}</span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-    <div class="card p-8">
+    <SectionHeading num="C" title="Bean to cup: the build hierarchy" description={menu.buildHierarchy.description} />
+
+    <div class="space-y-0">
+      {menu.buildHierarchy.steps.map((step, i) => (
+        <div>
+          <div class="card reveal flex gap-5 p-6">
+            <div class="flex flex-col items-center">
+              <span class="chip h-11 w-11 shrink-0 text-base">{step.level}</span>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-display text-xl font-semibold text-espresso">{step.title}</h3>
+              <p class="mt-1 text-sm text-espresso-soft">{step.description}</p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                {step.options.map((o) => (
+                  <span class="rounded-full bg-cream-deep px-2.5 py-1 text-xs font-medium text-espresso ring-1 ring-green-900/10">{o}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+          {i < menu.buildHierarchy.steps.length - 1 && (
+            <div class="flex justify-center py-1">
+              <svg width="20" height="28" viewBox="0 0 20 28" class="text-green-700/40">
+                <line x1="10" y1="0" x2="10" y2="20" stroke="currentColor" stroke-width="2"></line>
+                <path d="M4 16 L10 24 L16 16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-6 rounded-xl border-2 border-dashed border-gold bg-gold-light/30 p-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-wide text-espresso/70">Example finished order</p>
+      <p class="mt-2 font-display text-xl font-semibold text-espresso">
+        {menu.buildHierarchy.steps[menu.buildHierarchy.steps.length - 1].options[0]}
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="card reveal p-8">
       <h3 class="font-display text-lg font-semibold text-espresso">How baristas actually hear it</h3>
       <p class="mt-2 text-sm leading-relaxed text-espresso-soft">
         The build order above is how the drink is physically assembled — but the trained call-out order baristas
@@ -80,4 +218,35 @@ import menu from "../data/menu.json";
       </p>
     </div>
   </section>
+
+  <script>
+    const grid = document.getElementById("menu-category-grid");
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".menu-filter-btn");
+    const emptyState = document.getElementById("menu-empty-state");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter ?? "all";
+
+        buttons.forEach((b) => {
+          b.classList.toggle("is-active", b === btn);
+          b.classList.toggle("border-green-700", b === btn);
+          b.classList.toggle("bg-green-700", b === btn);
+          b.classList.toggle("text-white", b === btn);
+          b.classList.toggle("border-green-900/15", b !== btn);
+          b.classList.toggle("bg-white", b !== btn);
+          b.classList.toggle("text-espresso-soft", b !== btn);
+        });
+
+        let visibleCount = 0;
+        grid?.querySelectorAll<HTMLElement>(".menu-category-card").forEach((card) => {
+          const matches = filter === "all" || card.dataset.menuType === filter;
+          card.style.display = matches ? "" : "none";
+          if (matches) visibleCount++;
+        });
+
+        if (emptyState) emptyState.classList.toggle("hidden", visibleCount > 0);
+      });
+    });
+  </script>
 </Layout>

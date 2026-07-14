@@ -6,6 +6,9 @@ import countries from "../data/countries.json";
 import usStates from "../data/usStates.json";
 import cities from "../data/cities.json";
 
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (base.endsWith("/") ? base.slice(0, -1) : base) + href;
+
 const sortedCountries = [...countries].sort((a, b) => b.stores - a.stores);
 const sortedStates = [...usStates.states].sort((a, b) => b.stores - a.stores);
 ---
@@ -101,6 +104,12 @@ const sortedStates = [...usStates.states].sort((a, b) => b.stores - a.stores);
 
   <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
     <SectionHeading num="B" title="Notable cities & Reserve Roasteries" description="Starbucks doesn't publish city-level counts anywhere — these are the best publicly reported estimates, plus seven flagship locations: the original 1971 Pike Place store and six Reserve Roasteries (one, the original Capitol Hill Roastery, has since closed)." />
+    <img
+      src={withBase("/images/pikeplace/pikeplace-market-awning.jpg")}
+      alt="Pike Place Market, Seattle — home of the original Starbucks store"
+      class="photo-frame reveal mb-6 h-44 w-full object-cover sm:h-56"
+      loading="lazy"
+    />
     <div class="grid gap-6 sm:grid-cols-2">
       <div class="card p-6">
         <h3 class="font-display text-lg font-semibold text-espresso">Most Starbucks-saturated cities (estimated)</h3>
