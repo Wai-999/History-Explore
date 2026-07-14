@@ -12,8 +12,8 @@ const sortedStates = [...usStates.states].sort((a, b) => b.stores - a.stores);
 <Layout title="Global Presence" active="global">
   <Hero
     kicker="Section 04"
-    title="One globe, 68 markets, drill-down to state and city"
-    description="Click a marker (or use the dropdown) to open a market's profile — store count, ownership model, and, where the data exists, the states or cities behind the number."
+    title="A familiar map, 71 markets, drill-down to state and city"
+    description="Pan and zoom like any map you already know. Click a pin (or use the dropdown) to open a market's profile — store count, ownership model, and, where the data exists, the states or cities behind the number."
   />
 
   <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -26,25 +26,28 @@ const sortedStates = [...usStates.states].sort((a, b) => b.stores - a.stores);
       </label>
       <label class="flex items-center gap-2 text-sm font-medium text-espresso">
         <input type="checkbox" id="toggle-roasteries" checked class="h-4 w-4 rounded accent-green-700" />
-        Show Reserve Roasteries
+        Reserve Roasteries
       </label>
       <label class="flex items-center gap-2 text-sm font-medium text-espresso">
-        <input type="checkbox" id="toggle-rotate" checked class="h-4 w-4 rounded accent-green-700" />
-        Auto-rotate
+        <input type="checkbox" id="toggle-cluster" checked class="h-4 w-4 rounded accent-green-700" />
+        Cluster nearby markets
       </label>
+      <button id="reset-view" type="button" class="rounded-full border border-green-900/20 bg-white px-4 py-2 text-sm font-semibold text-green-800 transition hover:bg-green-100">
+        Reset view
+      </button>
     </div>
 
     <div class="grid gap-6 lg:grid-cols-[1fr_360px]">
-      <div class="card relative h-[520px] overflow-hidden bg-green-950 sm:h-[620px]">
-        <div id="globe-canvas" class="h-full w-full"></div>
-        <div class="pointer-events-none absolute bottom-3 left-3 flex flex-wrap gap-2 text-[11px]">
-          <span class="rounded-full bg-black/40 px-2.5 py-1 text-cream backdrop-blur">
-            <span class="mr-1 inline-block h-2 w-2 rounded-full bg-[#14684f] align-middle"></span>Reported
+      <div class="card relative h-[520px] overflow-hidden sm:h-[620px]">
+        <div id="map-canvas" class="h-full w-full"></div>
+        <div class="pointer-events-none absolute bottom-3 left-3 z-[1000] flex flex-wrap gap-2 text-[11px]">
+          <span class="rounded-full bg-white/90 px-2.5 py-1 text-espresso shadow-sm backdrop-blur">
+            <span class="mr-1 inline-block h-2 w-2 rounded-full bg-[#0f4f3d] align-middle"></span>Reported
           </span>
-          <span class="rounded-full bg-black/40 px-2.5 py-1 text-cream backdrop-blur">
-            <span class="mr-1 inline-block h-2 w-2 rounded-full bg-[#7fb59a] align-middle"></span>Estimated
+          <span class="rounded-full bg-white/90 px-2.5 py-1 text-espresso shadow-sm backdrop-blur">
+            <span class="mr-1 inline-block h-2 w-2 rounded-full bg-[#5c9c7c] align-middle"></span>Estimated
           </span>
-          <span class="rounded-full bg-black/40 px-2.5 py-1 text-cream backdrop-blur">
+          <span class="rounded-full bg-white/90 px-2.5 py-1 text-espresso shadow-sm backdrop-blur">
             <span class="mr-1 inline-block h-2 w-2 rounded-full bg-[#c6a664] align-middle"></span>Reserve Roastery
           </span>
         </div>
@@ -56,16 +59,17 @@ const sortedStates = [...usStates.states].sort((a, b) => b.stores - a.stores);
     </div>
 
     <p class="mt-4 text-xs text-espresso-soft/70">
-      Marker size and glow height scale with store count (log scale). Drag to rotate, scroll to zoom, click any
-      marker for its profile.
+      Pins cluster into a numbered badge (showing combined store count) when markets are close together on screen —
+      zoom in or click a cluster to split it apart. Drag to pan, scroll or use the +/− control to zoom, click any
+      pin for its full profile.
     </p>
   </section>
 
-  <script src="../scripts/globe-init.ts"></script>
+  <script src="../scripts/map-init.ts"></script>
 
   <section id="us-states-table" class="border-t border-green-900/10 bg-green-100/50 scroll-mt-20">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <SectionHeading num="A" title="United States, all 50 states + D.C." description={`Top 10 states account for ${usStates.top10Share} of the U.S. total. Six are directly reported by Starbucks/retail-analytics; the rest are population-weighted estimates.`} />
+      <SectionHeading num="A" title="United States, all 50 states + D.C." description={`Top 10 states account for ${usStates.top10Share} of the U.S. total. Six are directly reported by Starbucks/retail-analytics; the rest are population-weighted estimates scaled so the full table adds up to the reported national total.`} />
       <div class="card overflow-hidden">
         <div class="max-h-[520px] overflow-y-auto">
           <table class="w-full text-sm">
@@ -96,7 +100,7 @@ const sortedStates = [...usStates.states].sort((a, b) => b.stores - a.stores);
   </section>
 
   <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-    <SectionHeading num="B" title="Notable cities & Reserve Roasteries" description="Starbucks doesn't publish city-level counts anywhere — these are the best publicly reported estimates plus the seven flagship Reserve Roastery locations." />
+    <SectionHeading num="B" title="Notable cities & Reserve Roasteries" description="Starbucks doesn't publish city-level counts anywhere — these are the best publicly reported estimates, plus seven flagship locations: the original 1971 Pike Place store and six Reserve Roasteries (one, the original Capitol Hill Roastery, has since closed)." />
     <div class="grid gap-6 sm:grid-cols-2">
       <div class="card p-6">
         <h3 class="font-display text-lg font-semibold text-espresso">Most Starbucks-saturated cities (estimated)</h3>
@@ -128,7 +132,7 @@ const sortedStates = [...usStates.states].sort((a, b) => b.stores - a.stores);
 
   <section class="border-t border-green-900/10 bg-green-100/50">
     <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-      <SectionHeading num="C" title="Full country table" description="All 68 tracked markets, sorted by store count. Six of the world's largest markets are shown separately in the globe legend; the rest reflect Starbucks' broader licensed network." />
+      <SectionHeading num="C" title="Full country table" description="All 71 markets tracked on this map, sorted by store count. Starbucks discloses roughly 89 international markets in total — the ~18 not individually listed here are very small (a handful of stores each, often a single airport or hotel location) and get folded into Starbucks' own 'rest of world' reporting bucket rather than broken out. The six largest markets below are shown with sourced figures; the rest reflect Starbucks' broader licensed network at varying confidence." />
       <div class="card overflow-hidden">
         <div class="max-h-[600px] overflow-y-auto">
           <table class="w-full text-sm">

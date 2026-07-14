@@ -4,6 +4,9 @@ import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import data from "../data/challenges.json";
 
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (base.endsWith("/") ? base.slice(0, -1) : base) + href;
+
 const statusColor: Record<string, string> = {
   improving: "badge-reported",
   unresolved: "badge-estimated",
@@ -73,9 +76,9 @@ const statusColor: Record<string, string> = {
     <div class="card p-8">
       <p class="text-espresso-soft">
         For the market-by-market picture behind the China divestment and the U.S. store base, see
-        <a href="/global-presence/" class="font-semibold text-green-800 underline underline-offset-2">Global Presence</a>.
+        <a href={withBase("/global-presence/")} class="font-semibold text-green-800 underline underline-offset-2">Global Presence</a>.
         For the financial trajectory of the turnaround itself, see
-        <a href="/sales-performance/" class="font-semibold text-green-800 underline underline-offset-2">Sales & Performance</a>.
+        <a href={withBase("/sales-performance/")} class="font-semibold text-green-800 underline underline-offset-2">Sales & Performance</a>.
       </p>
     </div>
   </section>

@@ -1,6 +1,6 @@
 # Starbucks Data Hub
 
-An independent, deeply-researched data hub about Starbucks — history, culture, an interactive 3D globe of every market (drillable from country down to state/city), coffee sourcing, supply chain, sales performance, and a full menu-build hierarchy. Built as a static site (Astro + Tailwind CSS + globe.gl + Chart.js) so it can be hosted for free on GitHub Pages.
+An independent, deeply-researched data hub about Starbucks — history, culture, an interactive pan/zoom map of every market (drillable from country down to state/city), coffee sourcing, supply chain, sales performance, and a full menu-build hierarchy. Built as a static site (Astro + Tailwind CSS + Leaflet + Chart.js) so it can be hosted for free on GitHub Pages.
 
 **Not affiliated with, endorsed by, or sponsored by Starbucks Corporation.** All data is sourced from Starbucks' own SEC filings (10-K/10-Q/8-K), annual/Global Impact Reports, investor materials, and third-party retail analytics (Statista, ScrapeHero, World Population Review), current through mid-2026. Every figure on the site is labeled **Reported** (directly sourced) or **Estimated** (best available approximation) — see the Methodology note in the footer of every page.
 
@@ -10,7 +10,7 @@ An independent, deeply-researched data hub about Starbucks — history, culture,
 2. **History** — founding through 2026, full timeline + what made it successful
 3. **Challenges** — crises solved (2008 crash, Philadelphia incident, Australia's failed launch...) and problems still being fought (unionization, China competition, the cost of the turnaround)
 4. **Culture** — mission, "Third Place," five core values, partner benefits, sustainability
-5. **Global Presence** — interactive 3D globe (68 markets), click-to-drill into U.S. states or notable cities, full country + state data tables
+5. **Global Presence** — interactive map (71 markets, Google-Maps-style pan/zoom with clustering), click-to-drill into U.S. states or notable cities, full country + state data tables
 6. **Coffee & Sourcing** — origin regions/countries, C.A.F.E. Practices ethics program
 7. **Supply Chain** — Farmer Support Centers, roasting plants, workforce breakdown, labor relations
 8. **Sales & Performance** — revenue by segment/category, comparable-sales trend through the turnaround, top markets
@@ -20,7 +20,7 @@ An independent, deeply-researched data hub about Starbucks — history, culture,
 
 - [Astro](https://astro.build) — static site generator, file-based routing, ships zero JS by default
 - [Tailwind CSS v4](https://tailwindcss.com) — CSS-first theme config in `src/styles/global.css`
-- [globe.gl](https://github.com/vasturiano/globe.gl) (Three.js/WebGL) — the interactive 3D globe
+- [Leaflet](https://leafletjs.com) + [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) — the interactive map, CARTO Voyager basemap tiles
 - [Chart.js](https://www.chartjs.org) — bar/line/doughnut charts
 - All data lives in plain JSON files under `src/data/` — easy to update without touching any markup
 
@@ -64,7 +64,7 @@ Every number on the site comes from a JSON file in `src/data/`:
 
 | File | Powers |
 |---|---|
-| `countries.json` | The globe + full country table |
+| `countries.json` | The map + full country table |
 | `usStates.json` | U.S. state drill-down |
 | `cities.json` | Notable cities + Reserve Roastery flagships |
 | `coffeeOrigins.json` | Coffee sourcing regions & C.A.F.E. Practices |

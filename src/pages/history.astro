@@ -4,6 +4,9 @@ import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import timeline from "../data/history.json";
 
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (base.endsWith("/") ? base.slice(0, -1) : base) + href;
+
 const tagColor: Record<string, string> = {
   founding: "bg-green-700",
   leadership: "bg-espresso-soft",
@@ -75,8 +78,8 @@ const successFactors = [
     <div class="card p-8">
       <p class="text-sm font-semibold uppercase tracking-wide text-green-700">Keep reading</p>
       <p class="mt-2 text-espresso-soft">
-        The turnaround story continues in <a href="/challenges/" class="font-semibold text-green-800 underline underline-offset-2">Challenges & Solutions</a>,
-        and the philosophy behind the brand is unpacked in <a href="/culture/" class="font-semibold text-green-800 underline underline-offset-2">Culture & Values</a>.
+        The turnaround story continues in <a href={withBase("/challenges/")} class="font-semibold text-green-800 underline underline-offset-2">Challenges & Solutions</a>,
+        and the philosophy behind the brand is unpacked in <a href={withBase("/culture/")} class="font-semibold text-green-800 underline underline-offset-2">Culture & Values</a>.
       </p>
     </div>
   </section>

@@ -4,6 +4,9 @@ import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import StatCard from "../components/StatCard.astro";
 import coffeeOrigins from "../data/coffeeOrigins.json";
+
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (base.endsWith("/") ? base.slice(0, -1) : base) + href;
 ---
 <Layout title="Coffee & Sourcing" active="coffee">
   <Hero
@@ -85,7 +88,7 @@ import coffeeOrigins from "../data/coffeeOrigins.json";
     <div class="mt-6 card p-6">
       <p class="text-espresso-soft">
         The full roasting and distribution network that turns these beans into store-ready coffee is covered next, in
-        <a href="/supply-chain/" class="font-semibold text-green-800 underline underline-offset-2">Supply Chain & Workforce</a>.
+        <a href={withBase("/supply-chain/")} class="font-semibold text-green-800 underline underline-offset-2">Supply Chain & Workforce</a>.
       </p>
     </div>
   </section>
