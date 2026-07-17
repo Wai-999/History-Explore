@@ -73,6 +73,19 @@ a.card:hover, .card.card-hover:hover {
   animation-delay: 0.15s;
 }
 
+/* ---- Drink-sequence step chips (Menu Explorer): cascade in on tab switch ---- */
+@keyframes hub-step-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.step-chip {
+  opacity: 0;
+  animation: hub-step-in 0.45s ease forwards;
+}
+.sequence-tab-btn {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, .hero-fade-in, .hero-fade-in-delay {
     animation: none !important;
@@ -82,6 +95,11 @@ a.card:hover, .card.card-hover:hover {
   }
   .card, a.card, .sbx-pin {
     transition: none !important;
+  }
+  .step-chip {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import menu from "../data/menu.json";
+import drinkSequences from "../data/drinkSequences.json";
 
 const tempLabel: Record<string, string> = {
   hot: "Hot",
@@ -218,6 +219,106 @@ const filters = [
       </p>
     </div>
   </section>
+
+  <section class="border-t border-green-900/10 bg-green-100/50">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeading num="D" title="How each drink actually gets made" description={drinkSequences.intro} />
+
+      <div class="mb-8 flex flex-wrap gap-2" id="sequence-tabs">
+        {drinkSequences.categories.map((cat, i) => (
+          <button
+            type="button"
+            data-category-tab={cat.category}
+            aria-pressed={i === 0 ? "true" : "false"}
+            class:list={[
+              "sequence-tab-btn rounded-full border px-4 py-1.5 text-sm font-semibold",
+              i === 0
+                ? "border-green-700 bg-green-700 text-white"
+                : "border-green-900/15 bg-white text-espresso-soft hover:border-green-700 hover:text-green-800",
+            ]}
+          >
+            {cat.category}
+          </button>
+        ))}
+      </div>
+
+      {drinkSequences.categories.map((cat, ci) => (
+        <div class="sequence-panel" data-category-panel={cat.category} style={ci === 0 ? "" : "display:none"}>
+          {cat.drinks.length > 0 && (
+            <div class="grid gap-5 lg:grid-cols-2">
+              {cat.drinks.map((drink) => (
+                <div class="card p-6">
+                  <h4 class="font-display text-lg font-semibold text-espresso">{drink.name}</h4>
+                  <p class="mt-0.5 text-xs italic text-espresso-soft/70">{drink.ratio}</p>
+                  <div class="mt-4 space-y-0">
+                    {drink.steps.map((step, si) => (
+                      <div>
+                        <div class="step-chip flex gap-3 rounded-lg bg-cream-deep p-3 ring-1 ring-green-900/10" style={`animation-delay:${si * 0.09}s`}>
+                          <span class="chip h-6 w-6 shrink-0 text-xs">{si + 1}</span>
+                          <span class="text-xs leading-snug text-espresso">{step}</span>
+                        </div>
+                        {si < drink.steps.length - 1 && (
+                          <div class="flex justify-center py-0.5">
+                            <svg width="14" height="16" viewBox="0 0 14 16" class="text-green-700/40">
+                              <line x1="7" y1="0" x2="7" y2="10" stroke="currentColor" stroke-width="1.6"></line>
+                              <path d="M3 8 L7 13 L11 8" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          {cat.note && (
+            <p class={cat.drinks.length > 0 ? "mt-5 rounded-lg bg-white p-4 text-sm leading-relaxed text-espresso-soft ring-1 ring-green-900/10" : "card p-8 text-sm leading-relaxed text-espresso-soft"}>
+              {cat.note}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <script>
+    const tabs = document.querySelectorAll<HTMLButtonElement>("[data-category-tab]");
+    const panels = document.querySelectorAll<HTMLElement>("[data-category-panel]");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function replaySteps(panel: HTMLElement) {
+      if (prefersReducedMotion) return;
+      panel.querySelectorAll<HTMLElement>(".step-chip").forEach((chip) => {
+        chip.style.animation = "none";
+        void chip.offsetWidth;
+        chip.style.animation = "";
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const category = tab.dataset.categoryTab;
+
+        tabs.forEach((t) => {
+          const active = t === tab;
+          t.setAttribute("aria-pressed", String(active));
+          t.classList.toggle("border-green-700", active);
+          t.classList.toggle("bg-green-700", active);
+          t.classList.toggle("text-white", active);
+          t.classList.toggle("border-green-900/15", !active);
+          t.classList.toggle("bg-white", !active);
+          t.classList.toggle("text-espresso-soft", !active);
+        });
+
+        panels.forEach((panel) => {
+          const match = panel.dataset.categoryPanel === category;
+          panel.style.display = match ? "" : "none";
+          if (match) replaySteps(panel);
+        });
+      });
+    });
+  </script>
 
   <script>
     const grid = document.getElementById("menu-category-grid");

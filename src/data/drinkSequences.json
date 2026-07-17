@@ -1,0 +1,202 @@
+{
+  "intro": "The 8-layer hierarchy above is the general shape of every drink — but the exact technique changes a lot by drink family. Pick a category to see how specific, real menu items actually get built, step by step, based on Starbucks' own published recipes and barista training material.",
+  "categories": [
+    {
+      "category": "Espresso",
+      "drinks": [
+        {
+          "name": "Caffè Latte",
+          "ratio": "~90% steamed milk, 10% foam",
+          "steps": [
+            "Pull 1–2 shots of espresso directly into the cup",
+            "Steam milk to about 150°F, texturing just a thin layer of microfoam",
+            "Pour the steamed milk over the espresso",
+            "Finish with a thin spoonful of foam on top"
+          ]
+        },
+        {
+          "name": "Cappuccino",
+          "ratio": "the \"50/50 rule\" — half foam, half milk",
+          "steps": [
+            "Pull 1–2 shots of espresso directly into the cup",
+            "Steam milk into a thick, dense microfoam",
+            "Pour milk and foam together over the espresso",
+            "Foam should hold roughly half the cup's volume"
+          ]
+        },
+        {
+          "name": "Caramel Macchiato",
+          "ratio": "built upside-down from a latte",
+          "steps": [
+            "Pour vanilla syrup into the bottom of the cup",
+            "Add steamed milk, textured with foam on top",
+            "Pull espresso shots and pour them on top, \"marking\" through the foam",
+            "Finish with a crosshatch of caramel drizzle"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Brewed Coffee",
+      "drinks": [
+        {
+          "name": "Pike Place® Roast (drip)",
+          "ratio": "no milk, no espresso — just brewed coffee",
+          "steps": [
+            "Grind beans fresh for drip brewing",
+            "Hot water passes through the grounds in the drip brewer",
+            "Brewed coffee holds in an airpot, decanted to order",
+            "Poured straight into the cup"
+          ]
+        },
+        {
+          "name": "Cold Brew",
+          "ratio": "steeped, not brewed hot",
+          "steps": [
+            "Coarsely grind beans specifically for cold steeping",
+            "Steep in cold (never iced or hot) filtered water for up to 20 hours",
+            "Filter the grounds out of the concentrate",
+            "Serve over ice — naturally sweeter and less acidic than hot-brewed coffee"
+          ]
+        },
+        {
+          "name": "Nitro Cold Brew",
+          "ratio": "poured with no ice at all",
+          "steps": [
+            "Start from the same 20-hour slow-steeped Cold Brew",
+            "Store in a chilled keg, pressurized with nitrogen",
+            "Pour from a tap, the same way a stout beer is poured",
+            "Nitrogen microbubbles create a cascading, velvety pour with a creamy head"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Frappuccino® Blended Beverages",
+      "drinks": [
+        {
+          "name": "Coffee Frappuccino (e.g. Mocha, Caramel)",
+          "ratio": "coffee-based Frappuccino Roast",
+          "steps": [
+            "Combine ice, milk, and Frappuccino coffee base in the blender",
+            "Add the flavored syrup or sauce",
+            "Blend until smooth and slushy — a xanthan-gum base syrup keeps it from separating",
+            "Top with whipped cream and a drizzle"
+          ]
+        },
+        {
+          "name": "Crème Frappuccino (e.g. Vanilla Bean, Strawberries & Crème)",
+          "ratio": "caffeine-free crème base, no coffee",
+          "steps": [
+            "Swap the coffee base for a sweetened, caffeine-free crème base",
+            "Blend with ice, milk, and flavoring",
+            "Same thickened, slushy texture as a coffee Frappuccino — without any coffee",
+            "Top with whipped cream"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Refreshers",
+      "drinks": [
+        {
+          "name": "Strawberry Açaí / Mango Dragonfruit Refresher",
+          "ratio": "shaken, not stirred",
+          "steps": [
+            "Add a scoop of freeze-dried fruit \"inclusions\" to the shaker",
+            "Pour in the fruit-juice Refreshers base, which carries green coffee extract for caffeine",
+            "Add water (or lemonade) plus ice",
+            "Shake to combine — the same shaken method used for iced tea"
+          ]
+        }
+      ],
+      "note": "Swap the water for coconutmilk and any Refresher becomes a Pink Drink-style variant — same build, different base liquid."
+    },
+    {
+      "category": "Tea & Teavana",
+      "drinks": [
+        {
+          "name": "Chai Tea Latte",
+          "ratio": "half concentrate, half steamed milk",
+          "steps": [
+            "Fill the cup about halfway with Tazo chai concentrate and hot water",
+            "Steam milk (2% to about 170°F)",
+            "Pour steamed milk in, holding back the foam with a spoon",
+            "Scoop foam on top and finish with a dusting of cinnamon"
+          ]
+        },
+        {
+          "name": "Matcha Latte",
+          "ratio": "whisked, then steamed",
+          "steps": [
+            "Add classic syrup to the bottom of the cup",
+            "Whisk matcha powder into milk with a back-and-forth motion until fully dissolved",
+            "Steam the matcha-milk mixture together",
+            "Pour the steamed matcha milk over the syrup"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Iced & Shaken Espresso",
+      "drinks": [
+        {
+          "name": "Iced Brown Sugar Oatmilk Shaken Espresso",
+          "ratio": "shaken for a micro-foam, not stirred",
+          "steps": [
+            "Stir brown sugar into hot espresso so it fully dissolves",
+            "Add the sweetened espresso and ice to a shaker with a dash of cinnamon",
+            "Shake vigorously 10–20 times — this chills the drink and whips a light foam",
+            "Pour over ice and top with oatmilk"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Seasonal & Limited-Time",
+      "drinks": [
+        {
+          "name": "Pumpkin Spice Latte",
+          "ratio": "a Latte build with a seasonal sauce",
+          "steps": [
+            "Pour pumpkin spice sauce into the cup",
+            "Pull espresso shots on top and stir together",
+            "Fill the rest of the cup with steamed milk",
+            "Top with whipped cream and pumpkin spice topping"
+          ]
+        }
+      ],
+      "note": "Most seasonal drinks reuse a core method already on this page — usually the Latte or Frappuccino build — with a seasonal syrup or sauce swapped in."
+    },
+    {
+      "category": "Bottled / Ready-to-Drink",
+      "drinks": [],
+      "note": "These aren't built by a barista at all. RTD bottles and cans are manufactured and sealed off-site through Starbucks' PepsiCo (North America) and Nestlé (global CPG) partnerships, then shipped to store shelves and grocery channels ready to drink — no in-store sequence applies."
+    },
+    {
+      "category": "Reserve® / Roastery Exclusives",
+      "drinks": [
+        {
+          "name": "Pour-Over",
+          "ratio": "roughly a 1:17 coffee-to-water ratio",
+          "steps": [
+            "Grind beans fresh, coarser than an espresso grind",
+            "Rinse the paper filter and add the grounds",
+            "Pour hot water in slow, deliberate circles, blooming and saturating the grounds evenly",
+            "Full manual control produces a clean cup with no sediment or oil"
+          ]
+        },
+        {
+          "name": "Nitro Reserve",
+          "ratio": "single-origin Reserve beans, nitrogen-poured",
+          "steps": [
+            "Use the same nitrogen-infusion process as Nitro Cold Brew, with single-origin Reserve beans",
+            "Store in a chilled, pressurized keg",
+            "Pour slowly from the tap over about 20 seconds",
+            "Produces the same cascading, velvety pour — just with Reserve-grade coffee"
+          ]
+        }
+      ]
+    }
+  ]
+}
